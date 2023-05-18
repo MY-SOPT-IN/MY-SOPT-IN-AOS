@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,13 +9,105 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="home"
-        android:textSize="100dp"/>
+        android:background="@color/gray_50"
+        android:paddingHorizontal="14dp">
+
+        <include
+            android:id="@+id/calendar_day_week"
+            layout="@layout/calendar_header_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.kizitonwose.calendarview.CalendarView
+            android:id="@+id/calendar_view"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            app:cv_dayViewResource="@layout/calender_day_layout"
+            app:cv_hasBoundaries="true"
+            app:cv_maxRowCount="1"
+            app:cv_orientation="horizontal"
+            app:cv_scrollMode="paged"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calendar_day_week" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="27dp"
+            android:text="2023년 5월 7일"
+            android:textAppearance="@style/TextAppearance.Title2"
+            android:textColor="@color/gray_800"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendar_view" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_vector"
+            app:layout_constraintBottom_toBottomOf="@id/tv_edit"
+            app:layout_constraintEnd_toStartOf="@id/tv_edit"
+            app:layout_constraintTop_toTopOf="@id/tv_edit" />
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="5dp"
+            android:text="편집"
+            android:textAppearance="@style/TextAppearance.Body"
+            android:textColor="@color/gray_700"
+            app:layout_constraintEnd_toStartOf="@id/divisor"
+            app:layout_constraintTop_toBottomOf="@id/calendar_view" />
+
+        <View
+            android:id="@+id/divisor"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/gray_700"
+            android:padding="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_filter"
+            app:layout_constraintEnd_toStartOf="@+id/iv_filter"
+            app:layout_constraintTop_toTopOf="@id/tv_filter" />
+
+        <ImageView
+            android:id="@+id/iv_filter"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_vector"
+            app:layout_constraintBottom_toBottomOf="@id/tv_filter"
+            app:layout_constraintEnd_toStartOf="@id/tv_filter"
+            app:layout_constraintStart_toStartOf="@id/divisor"
+            app:layout_constraintTop_toTopOf="@id/tv_filter" />
+
+        <TextView
+            android:id="@+id/tv_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginTop="24dp"
+            android:text="필터"
+            android:textAppearance="@style/TextAppearance.Body"
+            android:textColor="@color/gray_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendar_view" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_date"
+            tools:listitem="@layout/item1" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
