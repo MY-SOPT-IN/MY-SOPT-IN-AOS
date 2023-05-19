@@ -33,23 +33,25 @@
             android:layout_marginStart="31dp"
             android:layout_marginTop="16dp"
             android:text="루틴 추가하기"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textAppearance="@style/TextAppearance.Title1"
+            android:textColor="@color/black" />
 
 
     </LinearLayout>
 
     <EditText
         android:id="@+id/add_routine_name"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/view_border_custom"
         android:hint="루틴 이름"
         android:paddingLeft="9dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColorHint="@color/gray_500"
-        android:textSize="12dp"
+        app:layout_constraintEnd_toStartOf="@id/chk_box"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_layer"
 
@@ -102,8 +104,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="알람"
+            android:textAppearance="@style/TextAppearance.caption1"
             android:textColor="@color/black"
-            android:textSize="11dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/ic_alert"
             app:layout_constraintStart_toEndOf="@id/ic_alert"
@@ -147,9 +149,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="언제 할래요?"
+            android:textAppearance="@style/TextAppearance.caption1"
             android:textColor="@color/black"
-            android:textSize="11dp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/ic_check"
             app:layout_constraintStart_toEndOf="@id/ic_check"
             app:layout_constraintTop_toTopOf="@id/ic_check" />
@@ -158,8 +159,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ex) 8:00/출근길/All"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/gray_500"
-            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@id/ic_check"
             app:layout_constraintEnd_toStartOf="@id/iv_check_next_arrow"
             app:layout_constraintTop_toTopOf="@id/ic_check" />
@@ -203,8 +204,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="루틴 반복 주기"
+            android:textAppearance="@style/TextAppearance.caption1"
             android:textColor="@color/black"
-            android:textSize="11dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/ic_calendar"
             app:layout_constraintStart_toEndOf="@id/ic_calendar"
@@ -214,8 +215,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="일, 월, 화, 수, 목, 금, 토"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/gray_800"
-            android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@id/ic_calendar"
             app:layout_constraintEnd_toStartOf="@id/iv_calendar_next_arrow"
             app:layout_constraintTop_toTopOf="@id/ic_calendar" />
@@ -239,8 +240,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="추가 설정"
+        android:textAppearance="@style/TextAppearance.caption1"
         android:textColor="@color/black"
-        android:textSize="11dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/routine_plus_settings"
         app:layout_constraintStart_toStartOf="@id/routine_plus_settings" />
@@ -264,6 +265,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="18dp"
             android:text="비공개"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -306,6 +308,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="형광펜"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/tv_private"
             app:layout_constraintTop_toBottomOf="@id/private_line" />
@@ -348,6 +351,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="시작일"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/tv_private"
             app:layout_constraintTop_toBottomOf="@id/highlight_line" />
@@ -382,6 +386,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="시간 필터"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/tv_private"
             app:layout_constraintTop_toBottomOf="@id/start_date_line" />
@@ -445,6 +450,7 @@
             android:layout_marginTop="18dp"
             android:layout_marginBottom="18dp"
             android:text="테마"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_private"
@@ -478,6 +484,7 @@
         android:layout_height="64dp"
         android:background="@color/primary"
         android:text="시작하기"
+        android:textAppearance="@style/TextAppearance.Subtitle"
         android:textColor="@color/gray_900"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
