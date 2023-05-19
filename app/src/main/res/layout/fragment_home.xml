@@ -16,5 +16,14 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text="home"
         android:textSize="100dp"/>
+
+        <Button
+            android:id="@+id/btn_plus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회고 추가하기"
+            android:contentDescription="임시로 만든 버튼"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
