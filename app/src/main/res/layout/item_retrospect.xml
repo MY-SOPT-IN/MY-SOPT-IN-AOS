@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_retrospect_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:paddingRight="5dp"
+        android:textAppearance="@style/TextAppearance.Title2"
+        android:textColor="@color/gray_800"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2023년 5월 7일" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@id/tv_retrospect_date"
+        app:layout_constraintStart_toEndOf="@id/tv_retrospect_date"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_retrospect_date">
+
+
+        <TextView
+            android:id="@+id/tv_retrospect_routine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="17dp"
+            android:text="루틴 회고"
+            android:textAppearance="@style/TextAppearance.Subtitle"
+            android:textColor="@color/gray_800"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_routine_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="17dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.Body"
+            android:textColor="@color/gray_700"
+            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+            app:layout_constraintTop_toBottomOf="@+id/tv_retrospect_routine"
+            tools:text="오늘은 바빠서 달성하기 힘들었다." />
+
+        <View
+            android:id="@+id/divisor_routine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="47dp"
+            android:background="@color/gray_700"
+            app:layout_constraintTop_toBottomOf="@+id/tv_routine_detail" />
+
+        <TextView
+            android:id="@+id/tv_retrospect_today"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Subtitle"
+            android:textColor="@color/gray_800"
+            android:layout_marginHorizontal="17dp"
+            android:layout_marginTop="16dp"
+            android:text="오늘 가장 좋았던 일"
+            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+            app:layout_constraintTop_toBottomOf="@id/divisor_routine" />
+
+        <TextView
+            android:id="@+id/tv_today_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="17dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.Body"
+            android:textColor="@color/gray_700"
+            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+            app:layout_constraintTop_toBottomOf="@+id/tv_retrospect_today"
+            tools:text="오늘 먹은 디저트가 제일 맛있음." />
+
+        <View
+            android:id="@+id/divisor_today"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="47dp"
+            android:background="@color/gray_700"
+            app:layout_constraintTop_toBottomOf="@+id/tv_today_detail" />
+
+        <TextView
+            android:id="@+id/tv_talk_me"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Subtitle"
+            android:textColor="@color/gray_800"
+            android:layout_marginHorizontal="17dp"
+            android:layout_marginTop="16dp"
+            android:text="나에게 한마디"
+            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+            app:layout_constraintTop_toBottomOf="@id/divisor_today" />
+
+        <TextView
+            android:id="@+id/tv_talk_me_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:layout_marginHorizontal="17dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.Body"
+            android:textColor="@color/gray_700"
+            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+            app:layout_constraintTop_toBottomOf="@+id/tv_talk_me"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="오늘은 바빠서 달성하기 힘들었다." />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
