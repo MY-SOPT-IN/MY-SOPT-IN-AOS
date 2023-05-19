@@ -14,11 +14,25 @@
     <color name="primary">#5FCA7B</color>
     <color name="primary_900">#354A35</color>
     <color name="primary_700">#51A96A</color>
-    <color name="gray_900">#343739</color>
-    <color name="gray_800">#64686B</color>
     <color name="gray_700">#7C8084</color>
     <color name="black">#000000</color>
     <color name="green">#F0FBE0</color>
     <color name="skyblue">#D7F3F2</color>
     <color name="purple">#E6CDFB</color>
+
+    <!--- 합세조 Gray Color-->
+    <color name="gray_50">#F5F6F6</color>
+    <color name="gray_100">#EDEFF0</color>
+    <color name="gray_200">#DDE0E4</color>
+    <color name="gray_400">#CCCCCC</color>
+    <color name="gray_500">#B3B6BA</color>
+    <color name="gray_800">#7C8084</color>
+    <color name="gray_900">#343739</color>
+
+
+
+
+
+
+
 </resources>
