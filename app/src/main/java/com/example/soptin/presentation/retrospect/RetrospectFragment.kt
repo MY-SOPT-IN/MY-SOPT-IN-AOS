@@ -1,13 +1,16 @@
 package com.example.soptin.presentation.retrospect
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.example.soptin.MainActivity
 import com.example.soptin.R
 import com.example.soptin.databinding.FragmentRetrospectBinding
+import com.example.soptin.presentation.home.AddRoutineActivity
 
 class RetrospectFragment : Fragment() {
 
@@ -26,6 +29,11 @@ class RetrospectFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnPlus.setOnClickListener {
+            val intent = Intent(context,AddRoutineActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {
