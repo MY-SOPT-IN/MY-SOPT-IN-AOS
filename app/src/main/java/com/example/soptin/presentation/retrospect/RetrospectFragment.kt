@@ -29,10 +29,6 @@ class RetrospectFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnPlus.setOnClickListener {
-            val intent = Intent(context,UpdateRetrospectActivity::class.java)
-            startActivity(intent)
-        }
 
     }
 
