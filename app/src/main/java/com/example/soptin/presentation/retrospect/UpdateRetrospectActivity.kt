@@ -1,6 +1,7 @@
 package com.example.soptin.presentation.retrospect
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -33,6 +34,7 @@ class UpdateRetrospectActivity : AppCompatActivity() {
         when(item.itemId){
             android.R.id.home -> {
                 val intent = Intent(this,MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
                 finish()
             }
