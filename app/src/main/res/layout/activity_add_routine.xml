@@ -404,7 +404,7 @@
             android:layout_width="40dp"
             android:layout_height="34dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_morning"
+            android:src="@drawable/ic_morning_on"
             app:layout_constraintBottom_toBottomOf="@id/iv_night"
             app:layout_constraintEnd_toStartOf="@id/iv_afternoon"
             app:layout_constraintTop_toTopOf="@id/iv_night" />
@@ -414,7 +414,7 @@
             android:layout_width="40dp"
             android:layout_height="34dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_afternoon"
+            android:src="@drawable/ic_afternoon_on"
             app:layout_constraintBottom_toBottomOf="@id/iv_night"
             app:layout_constraintEnd_toStartOf="@id/iv_night"
             app:layout_constraintTop_toTopOf="@id/iv_night" />
@@ -424,7 +424,7 @@
             android:layout_width="40dp"
             android:layout_height="34dp"
             android:layout_marginEnd="18dp"
-            android:src="@drawable/ic_night"
+            android:src="@drawable/ic_night_on"
             app:layout_constraintBottom_toBottomOf="@id/tv_time_filter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_time_filter" />
