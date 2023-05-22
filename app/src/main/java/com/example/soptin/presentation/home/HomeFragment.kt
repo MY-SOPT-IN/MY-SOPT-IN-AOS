@@ -1,5 +1,6 @@
 package com.example.soptin.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -60,8 +61,15 @@ class HomeFragment : Fragment() {
         val itemDecoration = BorderItemDecoration(requireContext(), 2) // 테두리 두께 설정
         binding.rv1.addItemDecoration(itemDecoration)
 
+        binding.btnAddRoutine.setOnClickListener {
+            val intent = Intent(context,AddRoutineActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
+
+    //똥코드 죄송.. 담에 시간 날때 수정할게요 ㅠㅠ 쏘리 캘린더 첨 커스텀해바
     private fun calender() {
         binding.calendarView.dayBinder = object : DayBinder<DayViewContainer> {
             override fun create(view: View) = DayViewContainer(view)
@@ -93,11 +101,6 @@ class HomeFragment : Fragment() {
         binding.calendarView.setup(firstMonth, lastMonth, daysOfWeek.first())
         binding.calendarView.scrollToDate(LocalDate.now())
     }
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
-    }
     inner class DayViewContainer(view: View) : ViewContainer(view) {
         val df = DecimalFormat("00")
         var doneIcon = CalenderDayLayoutBinding.bind(view).doneIcon
@@ -120,6 +123,11 @@ class HomeFragment : Fragment() {
             doneIcon.text = day.date.dayOfMonth.toString()
         }
     }
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+    }
+
 }
 
 
