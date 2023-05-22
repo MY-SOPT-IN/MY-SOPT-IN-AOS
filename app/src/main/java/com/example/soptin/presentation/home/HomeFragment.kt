@@ -1,6 +1,5 @@
 package com.example.soptin.presentation.home
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
