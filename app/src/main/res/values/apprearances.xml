@@ -39,7 +39,7 @@
     </style>
 
     <style name="TextAppearance.caption2" parent="TextAppearance.SoptIn">
-        <item name="fontFamily">@font/font_pretendard_extrabold</item>
+        <item name="fontFamily">@font/font_pretendard_regular</item>
         <item name="android:textSize">10sp</item>
     </style>
 

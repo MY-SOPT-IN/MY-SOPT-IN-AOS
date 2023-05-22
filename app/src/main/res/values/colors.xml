@@ -19,6 +19,7 @@
     <color name="green">#F0FBE0</color>
     <color name="skyblue">#D7F3F2</color>
     <color name="purple">#E6CDFB</color>
+    <color name="pastel_blue">#D0DCF5</color>
 
     <!--- 합세조 Gray Color-->
     <color name="gray_50">#F5F6F6</color>

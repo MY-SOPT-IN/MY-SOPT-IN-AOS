@@ -27,10 +27,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnPlus.setOnClickListener {
-            val intent = Intent(context,AddRoutineActivity::class.java)
-            startActivity(intent)
-        }
+
     }
 
     override fun onDestroyView() {
