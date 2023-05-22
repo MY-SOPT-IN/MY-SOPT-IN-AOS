@@ -48,8 +48,8 @@
 
         <ImageView
             android:layout_width="10dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="5dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="3dp"
             android:src="@drawable/ic_vector"
             app:layout_constraintBottom_toBottomOf="@id/tv_edit"
             app:layout_constraintEnd_toStartOf="@id/tv_edit"
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="16dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="10dp"
             android:text="편집"
             android:textAppearance="@style/TextAppearance.Body"
             android:textColor="@color/gray_700"
@@ -71,7 +71,7 @@
             android:id="@+id/divisor"
             android:layout_width="1dp"
             android:layout_height="0dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="12dp"
             android:background="@color/gray_700"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@id/tv_filter"
@@ -82,16 +82,17 @@
             android:id="@+id/iv_filter"
             android:layout_width="10dp"
             android:layout_height="0dp"
-            android:src="@drawable/ic_vector"
+            android:src="@drawable/ic_filter"
+            android:layout_marginEnd="4dp"
             app:layout_constraintBottom_toBottomOf="@id/tv_filter"
             app:layout_constraintEnd_toStartOf="@id/tv_filter"
-            app:layout_constraintStart_toStartOf="@id/divisor"
             app:layout_constraintTop_toTopOf="@id/tv_filter" />
 
         <TextView
             android:id="@+id/tv_filter"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
+            android:layout_marginEnd="3dp"
             android:layout_marginTop="24dp"
             android:text="필터"
             android:textAppearance="@style/TextAppearance.Body"
@@ -103,11 +104,24 @@
             android:id="@+id/rv1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_marginTop="23dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_date"
             tools:listitem="@layout/item1" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textColor="@color/primary_900"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="+"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/ic_home_btn"
+            android:gravity="center"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
