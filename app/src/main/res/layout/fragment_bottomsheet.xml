@@ -21,7 +21,7 @@
 
     <!-- '수정하기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonEdit"
+        android:id="@+id/btn_edit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -34,7 +34,7 @@
 
     <!-- '복사하기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonCopy"
+        android:id="@+id/btn_copy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -42,11 +42,11 @@
         android:paddingLeft="38dp"
         android:text="복사하기"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonEdit" />
+        app:layout_constraintTop_toBottomOf="@id/btn_edit" />
 
     <!-- '쉬어가기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonRest"
+        android:id="@+id/btn_rest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -54,14 +54,14 @@
         android:paddingLeft="38dp"
         android:text="쉬어가기"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonCopy"
+        app:layout_constraintTop_toBottomOf="@id/btn_copy"
 
 
         />
 
     <!-- '완료하기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonComplete"
+        android:id="@+id/btn_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -69,11 +69,11 @@
         android:paddingLeft="38dp"
         android:text="완료하기"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonRest" />
+        app:layout_constraintTop_toBottomOf="@id/btn_rest" />
 
     <!-- '월별통계보기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonStatistics"
+        android:id="@+id/btn_statistics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -81,10 +81,10 @@
         android:paddingLeft="38dp"
         android:text="월별 통계 보기"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonComplete" />
+        app:layout_constraintTop_toBottomOf="@id/btn_complete" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonDelete"
+        android:id="@+id/btn_delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -93,6 +93,6 @@
         android:text="전체 삭제하기"
         android:textColor="@color/semantic_red"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonStatistics" />
+        app:layout_constraintTop_toBottomOf="@id/btn_statistics" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
