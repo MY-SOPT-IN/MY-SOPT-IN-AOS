@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.collectretrospectives.CollectRetrospectiveActivity"
+            android:exported="false"/>
+        <activity
             android:name=".presentation.home.RoutineCalendarActivity"
             android:exported="false" />
         <activity
