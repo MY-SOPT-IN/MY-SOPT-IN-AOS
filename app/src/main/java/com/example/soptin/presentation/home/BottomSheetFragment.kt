@@ -26,7 +26,7 @@ class BottomSheetFragment(val routineId: Int) : BottomSheetDialogFragment() {
         _binding = FragmentBottomsheetBinding.inflate(inflater, container, false)
         return binding.root
     }
-
+    override fun getTheme(): Int = R.style.AppBottomSheetDialogTheme
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         clickButton()

@@ -32,8 +32,8 @@
             tools:text="2023년 5월 7일" />
 
         <ImageView
-             android:layout_width="48dp"
-            android:layout_height="48dp"
+             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="@{()->viewmodel.showUpdate(retrospect.retrospectId)}"
             android:src="@drawable/image_edit"
             app:layout_constraintBottom_toBottomOf="@id/tv_retrospect_date"
