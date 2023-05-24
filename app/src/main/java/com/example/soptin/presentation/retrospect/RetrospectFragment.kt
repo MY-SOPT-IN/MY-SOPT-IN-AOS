@@ -88,11 +88,12 @@ class RetrospectFragment : Fragment() {
             view.setOnClickListener {
                 // 날짜 선택 시 처리 정의
                 val clickedDate =
-                    "${day.date.year}년-${df.format(day.date.monthValue)}월-${df.format(day.date.dayOfMonth)}일"
+                    "${day.date.year}년 ${df.format(day.date.monthValue)}월 ${df.format(day.date.dayOfMonth)}일"
                 Log.d("date", clickedDate)
                 // 누군가 본다면 캘린더는 딥하게 제대로 해보자
                 //날짜 선정하는 부문
-//                binding.tvDate.text = clickedDate
+                binding.tvToday.text = clickedDate
+
 
             }
         }
