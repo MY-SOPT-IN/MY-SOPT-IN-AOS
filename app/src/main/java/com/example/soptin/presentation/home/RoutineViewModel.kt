@@ -1,11 +1,10 @@
 package com.example.soptin.presentation.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.soptin.data.RoutineDto
+import com.example.soptin.data.model.RoutineDto
 import com.example.soptin.data.repoimpl.RoutineRepoImpl
 import kotlinx.coroutines.launch
 

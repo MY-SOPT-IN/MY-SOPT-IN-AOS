@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import com.example.soptin.R
 import com.example.soptin.databinding.CalenderDayLayoutBinding
 import com.example.soptin.databinding.FragmentHomeBinding
+import com.example.soptin.presentation.AddRoutine.AddRoutineActivity
 import com.example.soptin.util.ViewModelFactory
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.ui.DayBinder
@@ -54,7 +55,7 @@ class HomeFragment : Fragment() {
         binding.rv1.addItemDecoration(itemDecoration)
 
         binding.btnAddRoutine.setOnClickListener {
-            val intent = Intent(context,AddRoutineActivity::class.java)
+            val intent = Intent(context, AddRoutineActivity::class.java)
             startActivity(intent)
         }
 

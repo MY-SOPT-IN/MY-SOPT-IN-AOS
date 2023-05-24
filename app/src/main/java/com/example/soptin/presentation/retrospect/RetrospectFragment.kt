@@ -1,6 +1,5 @@
 package com.example.soptin.presentation.retrospect
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.soptin.MainActivity
 import com.example.soptin.R
 import com.example.soptin.databinding.CalenderDayLayoutBinding
 import com.example.soptin.databinding.FragmentRetrospectBinding
-import com.example.soptin.presentation.home.AddRoutineActivity
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
@@ -75,7 +72,7 @@ class RetrospectFragment : Fragment() {
         val df = DecimalFormat("00")
         val formattedDate = "${year}년-${df.format(month)}월-${df.format(dayOfMonth)}일"
 
-//        binding.tvDate.text = formattedDate
+        binding.tvToday.text = formattedDate
         binding.calendarView.setup(firstMonth, lastMonth, daysOfWeek.first())
         binding.calendarView.scrollToDate(LocalDate.now())
     }
@@ -93,8 +90,6 @@ class RetrospectFragment : Fragment() {
                 // 누군가 본다면 캘린더는 딥하게 제대로 해보자
                 //날짜 선정하는 부문
                 binding.tvToday.text = clickedDate
-
-
             }
         }
 
