@@ -31,6 +31,12 @@ class RetrospectViewModel(
             _retrospectDto.value = response.body()?.data
         }
     }
+    fun getOneRetrospect(date:String) = viewModelScope.launch {
+        val response = retrospectRepoImpl.getOneRetrospect(date)
+        if (response.isSuccessful) {
+            Log.d("test",response.body().toString())
+        }
+    }
 
     fun putRetrospect(retrospectId: Int,retrospectDto: RetrospectDto) = viewModelScope.launch {
         val response = retrospectRepoImpl.putRetrospect(retrospectId,retrospectDto)

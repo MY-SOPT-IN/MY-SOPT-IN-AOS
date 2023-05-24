@@ -10,6 +10,8 @@ import retrofit2.http.Path
 interface RetrospectRepo {
     suspend fun getRetrospect(month: Int): Response<ResponseCollectRetrospectDto>
 
+    suspend fun getOneRetrospect(date: String): Response<ResponseCollectRetrospectDto2>
+
     suspend fun putRetrospect(
         retrospectId: Int,
         retrospectDto: RetrospectDto

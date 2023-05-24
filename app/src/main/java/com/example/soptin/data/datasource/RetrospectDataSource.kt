@@ -12,6 +12,10 @@ class RetrospectDataSource(private val apiService: RetrospectApiService) : Retro
     override suspend fun getRetrospect(month: Int): Response<ResponseCollectRetrospectDto> =
         apiService.getRetrospect(month)
 
+    override suspend fun getOneRetrospect(date: String): Response<ResponseCollectRetrospectDto2> =
+        apiService.getOneRetrospect(date)
+
+
     override suspend fun putRetrospect(
         retrospectId: Int,
         retrospectDto: RetrospectDto

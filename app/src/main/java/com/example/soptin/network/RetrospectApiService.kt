@@ -12,6 +12,9 @@ interface RetrospectApiService {
     @GET("/retro/all?")
     suspend fun getRetrospect(@Query("month") month:Int): Response<ResponseCollectRetrospectDto>
 
+    @GET("/retro?")
+    suspend fun getOneRetrospect(@Query("date") date: String): Response<ResponseCollectRetrospectDto2>
+
     @PUT("/retro/{retroId}")
     suspend fun putRetrospect(
         @Path("retroId") retrospectId:Int,
