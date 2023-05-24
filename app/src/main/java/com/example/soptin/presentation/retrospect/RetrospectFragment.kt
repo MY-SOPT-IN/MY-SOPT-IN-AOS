@@ -1,5 +1,6 @@
 package com.example.soptin.presentation.retrospect
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.soptin.R
 import com.example.soptin.databinding.CalenderDayLayoutBinding
 import com.example.soptin.databinding.FragmentRetrospectBinding
+import com.example.soptin.presentation.collectretrospectives.CollectRetrospectiveActivity
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
@@ -37,6 +39,12 @@ class RetrospectFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         calender()
+        binding.tvLookAllRetro.setOnClickListener {
+            Intent(activity, CollectRetrospectiveActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(this)
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -76,6 +84,7 @@ class RetrospectFragment : Fragment() {
         binding.calendarView.setup(firstMonth, lastMonth, daysOfWeek.first())
         binding.calendarView.scrollToDate(LocalDate.now())
     }
+
     inner class DayViewContainer(view: View) : ViewContainer(view) {
         val df = DecimalFormat("00")
         var doneIcon = CalenderDayLayoutBinding.bind(view).doneIcon

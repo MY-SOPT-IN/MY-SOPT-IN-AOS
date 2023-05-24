@@ -106,7 +106,6 @@ class HomeFragment : Fragment() {
                     "${day.date.year}년-${df.format(day.date.monthValue)}월-${df.format(day.date.dayOfMonth)}일"
                 Log.d("date", clickedDate)
                 // 누군가 본다면 캘린더는 딥하게 제대로 해보자
-
                 binding.tvDate.text = clickedDate
 
             }
