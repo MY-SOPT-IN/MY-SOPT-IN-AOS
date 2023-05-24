@@ -5,6 +5,8 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlinVersion"
 
 }
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
     namespace 'com.example.soptin'
@@ -18,6 +20,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "SOPTIN_BASE_URL", properties["soptin.base.url"]
+
     }
 
     buildTypes {
