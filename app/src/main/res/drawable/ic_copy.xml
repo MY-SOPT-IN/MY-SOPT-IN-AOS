@@ -15,18 +15,18 @@
         android:fillColor="#00000000"
         android:strokeColor="#808080"
         android:strokeWidth="2"
-        android:top="6"
-        android:left="6"
-        android:right="18"
-        android:bottom="18" />
+        android:top="6dp"
+        android:left="6dp"
+        android:right="18dp"
+        android:bottom="18dp" />
 
     <rect
         android:fillColor="#00000000"
         android:strokeColor="#808080"
         android:strokeWidth="2"
-        android:top="8"
-        android:left="8"
-        android:right="16"
-        android:bottom="16" />
+        android:top="8dp"
+        android:left="8dp"
+        android:right="16dp"
+        android:bottom="16dp" />
 
 </vector>
