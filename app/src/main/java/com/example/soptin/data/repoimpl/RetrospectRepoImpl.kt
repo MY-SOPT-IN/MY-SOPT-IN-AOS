@@ -2,6 +2,8 @@ package com.example.soptin.data.repoimpl
 
 import com.example.soptin.data.datasource.RetrospectDataSource
 import com.example.soptin.data.model.ResponseCollectRetrospectDto
+import com.example.soptin.data.model.ResponseCollectRetrospectDto2
+import com.example.soptin.data.model.RetrospectDto
 import retrofit2.Response
 
 class RetrospectRepoImpl (
@@ -10,4 +12,15 @@ class RetrospectRepoImpl (
 
     suspend fun getRetrospect(month:Int):Response<ResponseCollectRetrospectDto> =
         retrospectDataSource.getRetrospect(month)
+
+     suspend fun getOneRetrospect(date: String): Response<ResponseCollectRetrospectDto2> =
+        retrospectDataSource.getOneRetrospect(date)
+    suspend fun putRetrospect(
+        retrospectId: Int,
+        retrospectDto: RetrospectDto
+    ): Response<ResponseCollectRetrospectDto2> =
+        retrospectDataSource.putRetrospect(retrospectId,retrospectDto)
 }
+
+// interface repo - repo impl <- (datasource - api - remotedatasource)
+//view model repoimpl

@@ -13,11 +13,11 @@ data class RetrospectDto(
     @SerialName("descSelf")
     val descSelf: String,
     @SerialName("public")
-    val `public`: Boolean,
+    val `public`: Boolean?,
     @SerialName("isPublic")
     val `isPublic`: Boolean,
     @SerialName("retrospectId")
-    val retrospectId: Int,
+    val retrospectId: Int?,
     @SerialName("writtenDate")
     val writtenDate: String
 )

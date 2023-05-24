@@ -6,12 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.soptin.R
 import com.example.soptin.databinding.CalenderDayLayoutBinding
 import com.example.soptin.databinding.FragmentRetrospectBinding
 import com.example.soptin.presentation.collectretrospectives.CollectRetrospectiveActivity
+import com.example.soptin.presentation.collectretrospectives.RetrospectViewModel
+import com.example.soptin.util.ViewModelFactory
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
@@ -26,6 +30,7 @@ class RetrospectFragment : Fragment() {
     private var _binding: FragmentRetrospectBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel: RetrospectViewModel by viewModels { ViewModelFactory(requireContext()) }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,6 +44,7 @@ class RetrospectFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         calender()
+        viewModel.getOneRetrospect("2023-05-19")
         binding.tvLookAllRetro.setOnClickListener {
             Intent(activity, CollectRetrospectiveActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
