@@ -8,7 +8,9 @@ import com.example.soptin.data.model.RetrospectDto
 import com.example.soptin.databinding.ItemRetrospectBinding
 import com.example.soptin.util.DiffCallback
 
-class RetrostpectAdapter() : ListAdapter<RetrospectDto, RetrostpectAdapter.RetrospectViewHolder>(
+class RetrostpectAdapter(
+    private val viewModel: RetrospectViewModel,
+) : ListAdapter<RetrospectDto, RetrostpectAdapter.RetrospectViewHolder>(
     RetrospectDiffCallback
 ) {
 
@@ -25,6 +27,7 @@ class RetrostpectAdapter() : ListAdapter<RetrospectDto, RetrostpectAdapter.Retro
     inner class RetrospectViewHolder(private val binding: ItemRetrospectBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(retrospectDto: RetrospectDto) {
+            binding.viewmodel=viewModel
             binding.retrospect=retrospectDto
             binding.executePendingBindings()
         }
