@@ -40,6 +40,11 @@ class CollectRetrospectiveActivity : AppCompatActivity() {
             }
         }
 
+        binding.ivCalendar.setOnClickListener {
+            val bottomSheetFragment = BottomSheetDialog()
+            bottomSheetFragment.show(supportFragmentManager, "childFragmentManager")
+        }
+
         binding.toolbarCollectBack.setNavigationOnClickListener {
             Intent(this, MainActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)

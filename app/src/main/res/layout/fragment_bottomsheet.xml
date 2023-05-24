@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_bottomsheet"
     android:paddingLeft="38dp">
 
 
@@ -18,7 +17,6 @@
         android:src="@drawable/ic_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <!-- '수정하기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
