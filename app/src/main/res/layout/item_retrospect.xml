@@ -1,160 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="20dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tv_retrospect_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:paddingRight="5dp"
-        android:textAppearance="@style/TextAppearance.Title2"
-        android:textColor="@color/gray_800"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="2023년 5월 7일" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/image_edit"
-        app:layout_constraintBottom_toBottomOf="@id/tv_retrospect_date"
-        app:layout_constraintStart_toEndOf="@id/tv_retrospect_date"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_marginEnd="17dp"
-        android:background="@drawable/background_btn"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="7dp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_retrospect_date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="15dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_lock"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_lock_msg"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:gravity="center"
-            android:text="비공개 회고"
-            android:textAppearance="@style/TextAppearance.Body"
-            android:textColor="@color/gray_700"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <data>
+        <variable
+            name="retrospect"
+            type="com.example.soptin.data.model.RetrospectDto" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_retrospect_date">
-
+        android:layout_height="match_parent"
+        android:paddingTop="20dp">
 
         <TextView
-            android:id="@+id/tv_retrospect_routine"
-            android:layout_width="match_parent"
+            android:id="@+id/tv_retrospect_date"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            android:text="루틴 회고"
-            android:textAppearance="@style/TextAppearance.Subtitle"
+            android:layout_marginStart="16dp"
+            android:paddingRight="5dp"
+            android:text="@{retrospect.writtenDate}"
+            android:textAppearance="@style/TextAppearance.Title2"
             android:textColor="@color/gray_800"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2023년 5월 7일" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_edit"
+            app:layout_constraintBottom_toBottomOf="@id/tv_retrospect_date"
+            app:layout_constraintStart_toEndOf="@id/tv_retrospect_date"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_routine_detail"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lo_secret_mode"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="17dp"
+            android:background="@drawable/background_btn"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="7dp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_retrospect_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="15dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_lock"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_lock_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:gravity="center"
+                android:text="비공개 회고"
+                android:textAppearance="@style/TextAppearance.Body"
+                android:textColor="@color/gray_700"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            android:layout_marginTop="16dp"
-            android:textAppearance="@style/TextAppearance.Body"
-            android:textColor="@color/gray_500"
-            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
-            app:layout_constraintTop_toBottomOf="@+id/tv_retrospect_routine"
-            tools:text="오늘은 바빠서 달성하기 힘들었다." />
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_retrospect_date">
 
-        <View
-            android:id="@+id/divisor_routine"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="47dp"
-            android:background="@color/gray_100"
-            app:layout_constraintTop_toBottomOf="@+id/tv_routine_detail" />
 
-        <TextView
-            android:id="@+id/tv_retrospect_today"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            android:layout_marginTop="16dp"
-            android:text="오늘 가장 좋았던 일"
-            android:textAppearance="@style/TextAppearance.Subtitle"
-            android:textColor="@color/gray_800"
-            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
-            app:layout_constraintTop_toBottomOf="@id/divisor_routine" />
+            <TextView
+                android:id="@+id/tv_retrospect_routine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp"
+                android:text="루틴 회고"
+                android:textAppearance="@style/TextAppearance.Subtitle"
+                android:textColor="@color/gray_800"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_today_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            android:layout_marginTop="16dp"
-            android:textAppearance="@style/TextAppearance.Body"
-            android:textColor="@color/gray_500"
-            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
-            app:layout_constraintTop_toBottomOf="@+id/tv_retrospect_today"
-            tools:text="오늘 먹은 디저트가 제일 맛있음." />
+            <TextView
+                android:id="@+id/tv_routine_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp"
+                android:layout_marginTop="16dp"
+                android:text="@{retrospect.descRoutine}"
+                android:textAppearance="@style/TextAppearance.Body"
+                android:textColor="@color/gray_500"
+                app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+                app:layout_constraintTop_toBottomOf="@+id/tv_retrospect_routine"
+                tools:text="오늘은 바빠서 달성하기 힘들었다." />
 
-        <View
-            android:id="@+id/divisor_today"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="47dp"
-            android:background="@color/gray_100"
-            app:layout_constraintTop_toBottomOf="@+id/tv_today_detail" />
+            <View
+                android:id="@+id/divisor_routine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="47dp"
+                android:background="@color/gray_100"
+                app:layout_constraintTop_toBottomOf="@+id/tv_routine_detail" />
 
-        <TextView
-            android:id="@+id/tv_talk_me"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            android:layout_marginTop="16dp"
-            android:text="나에게 한마디"
-            android:textAppearance="@style/TextAppearance.Subtitle"
-            android:textColor="@color/gray_800"
-            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
-            app:layout_constraintTop_toBottomOf="@id/divisor_today" />
+            <TextView
+                android:id="@+id/tv_retrospect_today"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp"
+                android:layout_marginTop="16dp"
+                android:text="오늘 가장 좋았던 일"
+                android:textAppearance="@style/TextAppearance.Subtitle"
+                android:textColor="@color/gray_800"
+                app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+                app:layout_constraintTop_toBottomOf="@id/divisor_routine" />
 
-        <TextView
-            android:id="@+id/tv_talk_me_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="36dp"
-            android:textAppearance="@style/TextAppearance.Body"
-            android:textColor="@color/gray_500"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
-            app:layout_constraintTop_toBottomOf="@+id/tv_talk_me"
-            tools:text="오늘은 바빠서 달성하기 힘들었다." />
+            <TextView
+                android:id="@+id/tv_today_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp"
+                android:layout_marginTop="16dp"
+                android:textAppearance="@style/TextAppearance.Body"
+                android:textColor="@color/gray_500"
+                android:text="@{retrospect.descBest}"
+                app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+                app:layout_constraintTop_toBottomOf="@+id/tv_retrospect_today"
+                tools:text="오늘 먹은 디저트가 제일 맛있음." />
+
+            <View
+                android:id="@+id/divisor_today"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="47dp"
+                android:background="@color/gray_100"
+                app:layout_constraintTop_toBottomOf="@+id/tv_today_detail" />
+
+            <TextView
+                android:id="@+id/tv_talk_me"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp"
+                android:layout_marginTop="16dp"
+                android:text="나에게 한마디"
+                android:textAppearance="@style/TextAppearance.Subtitle"
+                android:textColor="@color/gray_800"
+                app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+                app:layout_constraintTop_toBottomOf="@id/divisor_today" />
+
+            <TextView
+                android:id="@+id/tv_talk_me_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="36dp"
+                android:text="@{retrospect.descSelf}"
+                android:textAppearance="@style/TextAppearance.Body"
+                android:textColor="@color/gray_500"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_retrospect_routine"
+                app:layout_constraintTop_toBottomOf="@+id/tv_talk_me"
+                tools:text="오늘은 바빠서 달성하기 힘들었다." />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
