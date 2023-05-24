@@ -1,6 +1,6 @@
 package com.example.soptin.data.repoimpl
 
-import com.example.soptin.data.ResponseRoutineDto
+import com.example.soptin.data.model.ResponseRoutineDto
 import com.example.soptin.data.datasource.RoutineDataSource
 import retrofit2.Response
 

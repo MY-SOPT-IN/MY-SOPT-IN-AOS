@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.soptin.R
-import com.example.soptin.data.RoutineDto
+import com.example.soptin.data.model.RoutineDto
 import com.example.soptin.databinding.ItemRoutineBinding
 import com.example.soptin.util.DiffCallback
 

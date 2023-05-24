@@ -1,6 +1,6 @@
 package com.example.soptin.network
 
-import com.example.soptin.data.ResponseRoutineDto
+import com.example.soptin.data.model.ResponseRoutineDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

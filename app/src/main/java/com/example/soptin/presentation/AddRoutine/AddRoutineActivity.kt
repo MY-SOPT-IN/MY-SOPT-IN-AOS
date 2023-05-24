@@ -1,4 +1,4 @@
-package com.example.soptin.presentation.home
+package com.example.soptin.presentation.AddRoutine
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
