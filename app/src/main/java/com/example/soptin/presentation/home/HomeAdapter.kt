@@ -46,7 +46,7 @@ class HomeAdapter() : ListAdapter<RoutineDto, HomeAdapter.HomeViewHolder>(
             binding.routineDto = routineDto
             binding.executePendingBindings()
 
-            if (absoluteAdapterPosition != RecyclerView.NO_POSITION) {
+            if (absoluteAdapterPosition != RecyclerView.NO_POSITION) { // 클릭시 buttomsheet 올라옴
                 binding.root.setOnClickListener {
                     val bottomSheetFragment = BottomSheetFragment(routineDto.routineId)
                     val fragmentManager = (binding.root.context as AppCompatActivity).supportFragmentManager

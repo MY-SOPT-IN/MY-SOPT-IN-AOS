@@ -43,7 +43,10 @@ class BottomSheetFragment(val routineId: Int) : BottomSheetDialogFragment() {
                 dismiss()
             }
             btnDelete.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putInt("routineId",routineId)
                 val alertDeleteDialogFragment = AlertDeleteDialogFragment()
+                alertDeleteDialogFragment.arguments = bundle
                 alertDeleteDialogFragment.show(parentFragmentManager,"TAG")
             }
         }
