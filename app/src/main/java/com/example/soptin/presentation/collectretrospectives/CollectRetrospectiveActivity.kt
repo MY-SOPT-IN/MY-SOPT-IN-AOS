@@ -27,6 +27,7 @@ class CollectRetrospectiveActivity : AppCompatActivity() {
         viewModel.retrospectDto.observe(this){
             binding.rvRetrospect.adapter = adapter.apply {
                 submitList(it)
+
             }
         }
 
