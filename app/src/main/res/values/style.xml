@@ -5,4 +5,10 @@
         <item name="android:background">@drawable/background_bottomsheet</item>
     </style>
 
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@color/white</item>
+        <item name="android:drawablePadding">13dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
 </resources>
