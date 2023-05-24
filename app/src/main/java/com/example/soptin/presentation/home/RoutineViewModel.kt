@@ -1,0 +1,26 @@
+package com.example.soptin.presentation.home
+
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.soptin.data.RoutineDto
+import com.example.soptin.data.repoimpl.RoutineRepoImpl
+import kotlinx.coroutines.launch
+
+class RoutineViewModel (
+    private val routineRepoImpl: RoutineRepoImpl
+) : ViewModel(){
+    private val _routineDto = MutableLiveData<List<RoutineDto>?>()
+    val routineDto: LiveData<List<RoutineDto>?>
+        get() = _routineDto
+    fun getRoutine(targetDate:String) = viewModelScope.launch {
+        val response = routineRepoImpl.getRoutine(targetDate)
+        if(response.isSuccessful){
+            _routineDto.value= response.body()?.data
+        }
+    }
+
+
+}

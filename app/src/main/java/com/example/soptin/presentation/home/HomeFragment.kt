@@ -6,24 +6,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.core.view.doOnPreDraw
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.soptin.R
-import com.example.soptin.data.RoutineDto
 import com.example.soptin.databinding.CalenderDayLayoutBinding
 import com.example.soptin.databinding.FragmentHomeBinding
+import com.example.soptin.util.ViewModelFactory
 import com.kizitonwose.calendarview.model.CalendarDay
-import com.kizitonwose.calendarview.model.DayOwner
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
-import com.kizitonwose.calendarview.utils.Size
 import java.text.DecimalFormat
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.YearMonth
-import java.time.temporal.WeekFields
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -31,6 +27,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val adapter = HomeAdapter()
+    private val viewModel: RoutineViewModel by viewModels { ViewModelFactory(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,19 +42,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         calender()
-        //testtest
-        val list = listOf<RoutineDto>(
-            RoutineDto("1", "떠있는", "3ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ"),
-            RoutineDto("2", "아침에", "3ㅁㄴㅇㅁㄴㅇㅁㄴㅇ"),
-            RoutineDto("3", "오후에", "3ㄴㅁㅇㅁㄴㅇㅁㄴㅇ"),
-            RoutineDto("4", "오전에", "3ㅁㄴㅇㅁㄴㅇㅁㄴㅇ"),
-            RoutineDto("5", "안니까", "3ㅁㄴㅇㅁㄴㅇㅇㅁㄴ")
-        )
+        viewModel.getRoutine("2023-05-23")
 
-        binding.rv1.adapter = adapter.apply {
-            Log.d("test", list.toString())
-            submitList(list)
+        viewModel.routineDto.observe(viewLifecycleOwner){
+            binding.rv1.adapter = adapter.apply {
+                submitList(it)
+            }
         }
+
         val itemDecoration = BorderItemDecoration(requireContext(), 2) // 테두리 두께 설정
         binding.rv1.addItemDecoration(itemDecoration)
 
@@ -113,6 +105,7 @@ class HomeFragment : Fragment() {
                     "${day.date.year}년-${df.format(day.date.monthValue)}월-${df.format(day.date.dayOfMonth)}일"
                 Log.d("date", clickedDate)
                 // 누군가 본다면 캘린더는 딥하게 제대로 해보자
+
                 binding.tvDate.text = clickedDate
 
             }

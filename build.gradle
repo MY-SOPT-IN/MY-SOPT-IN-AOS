@@ -9,4 +9,5 @@ ext {
     glideVersion = '4.12.0'
     retrofitVersion = '2.9.0'
     kotlinVersion = "1.8.0"
+    lifecycleVersion = '2.6.1'
 }

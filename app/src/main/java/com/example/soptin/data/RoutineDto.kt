@@ -1,7 +1,15 @@
 package com.example.soptin.data
 
-data class RoutineDto (
-    val ind : String,
-    val box1 : String,
-    val box2 : String
-    )
+
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class RoutineDto(
+    @SerialName("routineAt")
+    val routineAt: String,
+    @SerialName("routineId")
+    val routineId: Int,
+    @SerialName("routineName")
+    val routineName: String
+)
