@@ -10,26 +10,27 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="29dp">
+        android:paddingTop="22dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_bottomsheet_retro"
             android:layout_width="match_parent"
+            android:layout_height="180dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/item_bottom_sheet_retrospect"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_height="wrap_content" />
+            tools:listitem="@layout/item_bottom_sheet_retrospect" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_bottom_retro_select"
+            android:layout_width="match_parent"
+            android:layout_marginTop="29dp"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
             android:text="선택"
             android:textAppearance="@style/TextAppearance.Title2"
             android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_bottomsheet_retro"
-            android:background="@color/primary" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_bottomsheet_retro" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
