@@ -1,6 +1,7 @@
 package com.example.soptin.presentation.home
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,12 +43,22 @@ class BottomSheetFragment(val routineId: Int) : BottomSheetDialogFragment() {
             ivClose.setOnClickListener {
                 dismiss()
             }
-            btnDelete.setOnClickListener {
+            btnDelete.setOnClickListener {// routineId를 삭제 팝업창으로 넘김
                 val bundle = Bundle()
                 bundle.putInt("routineId",routineId)
                 val alertDeleteDialogFragment = AlertDeleteDialogFragment()
                 alertDeleteDialogFragment.arguments = bundle
                 alertDeleteDialogFragment.show(parentFragmentManager,"TAG")
+            }
+            btnStatistics.setOnClickListener {
+                val intent = Intent(activity,RoutineCalendarActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+            btnEdit.setOnClickListener {
+                val intent = Intent(activity,UpdateRoutineActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
         }
     }
