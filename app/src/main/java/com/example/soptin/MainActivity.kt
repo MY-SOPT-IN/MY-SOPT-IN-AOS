@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
-
         }
     }
 }
