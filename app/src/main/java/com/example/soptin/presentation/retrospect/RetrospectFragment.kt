@@ -54,6 +54,7 @@ class RetrospectFragment : Fragment() {
             binding.etRoutineRetro.setText(it.data?.descRoutine ?: "")
             binding.etTodayGood.setText(it.data?.descBest ?: "")
             binding.etTalkMyself.setText(it.data?.descSelf ?: "")
+            clickSave(it.data?.retrospectId ?: 1)
         }
 
         binding.tvLookAllRetro.setOnClickListener {
@@ -62,7 +63,7 @@ class RetrospectFragment : Fragment() {
                 startActivity(this)
             }
         }
-        clickSave(viewModel.getRetroId.value ?: 1)
+
 
 
     }

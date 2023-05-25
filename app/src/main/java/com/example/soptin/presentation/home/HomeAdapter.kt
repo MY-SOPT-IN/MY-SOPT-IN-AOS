@@ -30,7 +30,10 @@ class HomeAdapter() : ListAdapter<RoutineDto, HomeAdapter.HomeViewHolder>(
         RecyclerView.ViewHolder(binding.root) {
         // 이거 이따구로 해도되나? ㅋㅋ
         fun bind(routineDto: RoutineDto) {
-            if (position == 0) {
+            if(currentList.size == 1){
+                binding.tvDo.setBackgroundResource(R.drawable.backgroundall)
+            }
+            else if (position == 0) {
                 binding.tvDo.setBackgroundResource(R.drawable.backgroundtop)
                 binding.ivCheck.setBackgroundResource(R.drawable.background_grey_top)
                 binding.tvRoutine.setBackgroundResource(R.drawable.background_grey_top)
