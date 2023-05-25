@@ -27,9 +27,23 @@ class UpdateRetrospectActivity : AppCompatActivity() {
 
         val Intent = intent
         val retrospectId = Intent.getIntExtra("id",0)
+        val writtenDate = Intent.getStringExtra("writtenDate")
+        val routine = Intent.getStringExtra("routine")
+        val best = Intent.getStringExtra("best")
+        val self = Intent.getStringExtra("self")
+        binding.etRoutineRetro.setText(routine)
+        binding.etTodayGood.setText(best)
+        binding.etTalkMyself.setText(self)
+        binding.tvPutDate.text = writtenDate
         binding.btnUpdate.setOnClickListener {
-            viewModel.putRetrospect(retrospectId, RetrospectDto("오늘 먹은 밥 최고!","오늘 루틴 최고",
-            "오늘 하루 수고  많았다.",null,true,null,"2023-05-19"))
+            with(binding) {
+                viewModel.putRetrospect(
+                    retrospectId, RetrospectDto(
+                        etTodayGood.text.toString(), etRoutineRetro.text.toString(),
+                        etTalkMyself.text.toString(), null, true, null, tvPutDate.text.toString()
+                    )
+                )
+            }
         }
     }
 

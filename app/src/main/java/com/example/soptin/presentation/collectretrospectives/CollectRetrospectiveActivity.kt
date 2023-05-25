@@ -20,6 +20,7 @@ import com.example.soptin.presentation.retrospect.RetrospectFragment
 import com.example.soptin.presentation.retrospect.UpdateRetrospectActivity
 import com.example.soptin.util.EventObserver
 import com.example.soptin.util.ViewModelFactory
+import kotlinx.serialization.SerialName
 
 class CollectRetrospectiveActivity : AppCompatActivity() , BottomSheetListner{
 
@@ -53,7 +54,11 @@ class CollectRetrospectiveActivity : AppCompatActivity() , BottomSheetListner{
         }
         viewModel.retrospectId.observe(this, EventObserver {
             Intent(this, UpdateRetrospectActivity::class.java).apply {
-                putExtra("id", it)
+                putExtra("id", it.retrospectId)
+                putExtra("writtenDate", it.writtenDate)
+                putExtra("routine", it.descRoutine)
+                putExtra("best", it.descBest)
+                putExtra("self", it.descSelf)
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 setResult(RESULT_OK)
                 startActivity(this)

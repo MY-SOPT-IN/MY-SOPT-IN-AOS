@@ -24,8 +24,8 @@ class RetrospectViewModel(
     private val _oneRetrospectDto = MutableLiveData<RetrospectDto?>()
     val oneRetrospectDto: LiveData<RetrospectDto?> get() = _oneRetrospectDto
 
-    private val _retrospectId = MutableLiveData<Event<Int>>()
-    val retrospectId: LiveData<Event<Int>>
+    private val _retrospectId = MutableLiveData<Event<RetrospectDto>>()
+    val retrospectId: LiveData<Event<RetrospectDto>>
         get() = _retrospectId
 
     private val _code = MutableLiveData<Int>()
@@ -51,9 +51,6 @@ class RetrospectViewModel(
         }
     }
 
-    fun getMonth(month:String){
-        Log.d("test","$month")
-    }
 
 
     fun putRetrospect(retrospectId: Int,retrospectDto: RetrospectDto) = viewModelScope.launch {
@@ -70,7 +67,7 @@ class RetrospectViewModel(
         }
     }
 
-    fun showUpdate(retrospectId: Int) {
+    fun showUpdate(retrospectId: RetrospectDto) {
         _retrospectId.value = Event(retrospectId)
     }
 
