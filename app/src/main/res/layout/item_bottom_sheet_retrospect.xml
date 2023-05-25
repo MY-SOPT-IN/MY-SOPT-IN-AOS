@@ -8,18 +8,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:paddingVertical="7dp"
-        android:layout_height="wrap_content">
+        android:paddingHorizontal="40dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="7dp">
 
         <TextView
+
             android:id="@+id/tv_month_year"
             android:layout_width="match_parent"
-            android:layout_height="19dp"
-            android:textAppearance="@style/TextAppearance.Title1"
-            android:text="2023년 1월"
+            android:layout_height="30dp"
             android:gravity="center"
+            android:text="2023년 1월"
+            android:textAppearance="@style/TextAppearance.Title1"
+            android:textColor="@color/gray_700"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/gray_700" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

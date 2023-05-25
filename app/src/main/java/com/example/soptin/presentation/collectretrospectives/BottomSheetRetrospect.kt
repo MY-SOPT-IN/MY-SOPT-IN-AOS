@@ -1,28 +1,30 @@
 package com.example.soptin.presentation.collectretrospectives
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.soptin.R
 import com.example.soptin.databinding.FragmentBottomsheetRetrospectBinding
-import com.example.soptin.presentation.home.HomeAdapter
-import com.example.soptin.util.ViewModelFactory
 import com.example.soptin.util.getNowMonth
+import com.example.soptin.util.toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import java.util.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 interface BottomSheetListner {
-    fun onBottomSheetResult()
+    fun onBottomSheetResult(month: Int)
 }
 
-class BottomSheetDialog() : BottomSheetDialogFragment() {
-    private val adapter = MonthYearAdapter()
+class BottomSheetDialog(private val context: Context) : BottomSheetDialogFragment() {
+
+    private val adapter = MonthYearAdapter(context)
     private lateinit var binding: FragmentBottomsheetRetrospectBinding
     private var bottomSheetListner: BottomSheetListner? = null
 
@@ -43,18 +45,26 @@ class BottomSheetDialog() : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val a = getNowMonth()
+        var month: Int
         binding.rvBottomsheetRetro.adapter = adapter.apply {
             submitList(a)
+            setOnItemClickListener(object : MonthYearAdapter.OnItemClickListener {
+                override fun onItemClick(item: String, position: Int) {
+                    val input = "$item"
+                    val regex = """\d+년 (\d+)월""".toRegex()
+                    month = regex.find(input)?.groupValues?.getOrNull(1)?.toInt()!!
+                    onClick(month)
+                }
+            })
         }
-        onClick()
     }
 
-    private fun onClick() {
+    private fun onClick(month: Int) {
         with(binding) {
             btnBottomRetroSelect.setOnClickListener {
                 viewLifecycleOwner.lifecycleScope.launch {
                     val job = async {
-                        bottomSheetListner?.onBottomSheetResult()
+                        bottomSheetListner?.onBottomSheetResult(month)
                     }
                     job.await()
                     dismiss()

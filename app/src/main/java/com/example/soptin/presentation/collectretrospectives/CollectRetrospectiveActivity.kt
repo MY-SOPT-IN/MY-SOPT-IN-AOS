@@ -25,14 +25,13 @@ class CollectRetrospectiveActivity : AppCompatActivity() , BottomSheetListner{
 
     private lateinit var binding: ActivityCollectRetrospectiveBinding
     private val viewModel: RetrospectViewModel by viewModels { ViewModelFactory(this) }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_collect_retrospective)
         val adapter = RetrostpectAdapter(viewModel)
 
         //달 선택 만들면 추후에 바꿈 현재는 하드
-        viewModel.getRetrospect(4)
+        viewModel.getRetrospect(5)
 
         viewModel.retrospectDto.observe(this){
             binding.rvRetrospect.adapter = adapter.apply {
@@ -41,7 +40,7 @@ class CollectRetrospectiveActivity : AppCompatActivity() , BottomSheetListner{
         }
 
         binding.ivCalendar.setOnClickListener {
-            val bottomSheetFragment = BottomSheetDialog()
+            val bottomSheetFragment = BottomSheetDialog(this)
             bottomSheetFragment.setCheckDialogListener(this)
             bottomSheetFragment.show(supportFragmentManager, "childFragmentManager")
         }
@@ -62,8 +61,8 @@ class CollectRetrospectiveActivity : AppCompatActivity() , BottomSheetListner{
         })
     }
 
-    override fun onBottomSheetResult() {
-        viewModel.getRetrospect(5)
+    override fun onBottomSheetResult(month:Int) {
+        viewModel.getRetrospect(month)
     }
 
 }

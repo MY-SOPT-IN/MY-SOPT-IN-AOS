@@ -51,6 +51,11 @@ class RetrospectViewModel(
         }
     }
 
+    fun getMonth(month:String){
+        Log.d("test","$month")
+    }
+
+
     fun putRetrospect(retrospectId: Int,retrospectDto: RetrospectDto) = viewModelScope.launch {
         val response = retrospectRepoImpl.putRetrospect(retrospectId,retrospectDto)
         if (response.isSuccessful) {
