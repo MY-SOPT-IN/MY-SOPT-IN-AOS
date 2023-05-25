@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="day_cell_height">84dp</dimen>
+    <dimen name="day_cell_height">65dp</dimen>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -15,19 +16,13 @@
             android:layout_height="match_parent"
             android:background="@color/gray_50">
 
-            <include
-                android:id="@+id/calendar_day_week"
-                layout="@layout/calendar_header_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
             <com.kizitonwose.calendarview.CalendarView
+                android:layout_marginTop="4dp"
                 android:id="@+id/calendar_view"
                 android:layout_width="0dp"
-                android:layout_height="52dp"
+                tools:listitem="@layout/calender_day_layout"
+                android:layout_height="65dp"
                 app:cv_dayViewResource="@layout/calender_day_layout"
                 app:cv_hasBoundaries="true"
                 app:cv_maxRowCount="1"
@@ -35,7 +30,7 @@
                 app:cv_scrollMode="paged"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/calendar_day_week" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_calendar"
