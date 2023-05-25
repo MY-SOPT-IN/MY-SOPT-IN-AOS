@@ -13,13 +13,3 @@ data class ResponseCollectRetrospectDto(
     @SerialName("message")
     val message: String
 )
-
-@Serializable
-data class ResponseCollectRetrospectDto2(
-    @SerialName("code")
-    val code: Int,
-    @SerialName("data")
-    val `data`: RetrospectDto?,
-    @SerialName("message")
-    val message: String
-)
