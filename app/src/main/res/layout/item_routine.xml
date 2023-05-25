@@ -7,7 +7,7 @@
 
         <variable
             name="routine_dto"
-            type="com.example.soptin.data.RoutineDto" />
+            type="com.example.soptin.data.model.RoutineDto" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

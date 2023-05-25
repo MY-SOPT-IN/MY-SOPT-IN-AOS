@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
         val tabLayout = binding.tabLayout
 
-        tabLayout.addTab(tabLayout.newTab().setText("Home"))
-        tabLayout.addTab(tabLayout.newTab().setText("Other"))
+        tabLayout.addTab(tabLayout.newTab().setText("      루틴      "))
+        tabLayout.addTab(tabLayout.newTab().setText("      회고      "))
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.commit {
             replace(R.id.fragment_container, fragment)
-
         }
     }
 }

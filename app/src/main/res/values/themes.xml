@@ -18,7 +18,13 @@
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/white</item>
 
+
+
     </style>
-    
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
 
 </resources>

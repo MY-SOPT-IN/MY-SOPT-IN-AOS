@@ -50,4 +50,5 @@ object ApiFactory {
 
 object ServicePool {
     val routineApiService = ApiFactory.createAuthService<RoutineApiService>()
+    val retrospectApiService = ApiFactory.createAuthService<RetrospectApiService>()
 }

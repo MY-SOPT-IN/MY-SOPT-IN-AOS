@@ -1,12 +1,15 @@
 package com.example.soptin.presentation.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.soptin.R
-import com.example.soptin.data.RoutineDto
+import com.example.soptin.data.model.RoutineDto
 import com.example.soptin.databinding.ItemRoutineBinding
+import com.example.soptin.presentation.collectretrospectives.BottomSheetDialog
 import com.example.soptin.util.DiffCallback
 
 class HomeAdapter() : ListAdapter<RoutineDto, HomeAdapter.HomeViewHolder>(
@@ -43,8 +46,17 @@ class HomeAdapter() : ListAdapter<RoutineDto, HomeAdapter.HomeViewHolder>(
             binding.tvIndex.text = (position + 1).toString()
             binding.routineDto = routineDto
             binding.executePendingBindings()
+
+            if (absoluteAdapterPosition != RecyclerView.NO_POSITION) { // 클릭시 buttomsheet 올라옴
+                binding.root.setOnClickListener {
+                    val bottomSheetFragment = BottomSheetFragment(routineDto.routineId)
+                    val fragmentManager = (binding.root.context as AppCompatActivity).supportFragmentManager
+                    bottomSheetFragment.show(fragmentManager, "TAG")
+                }
+            }
         }
     }
+
 
     companion object {
         private val HomeDiffCallback =

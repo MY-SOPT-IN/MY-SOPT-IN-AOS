@@ -1,4 +1,4 @@
-package com.example.soptin.data
+package com.example.soptin.data.model
 
 
 import kotlinx.serialization.SerialName
