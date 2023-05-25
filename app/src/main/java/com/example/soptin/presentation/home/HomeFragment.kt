@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.doOnPreDraw
 import androidx.databinding.DataBindingUtil
@@ -18,6 +19,7 @@ import com.example.soptin.presentation.AddRoutine.AddRoutineActivity
 import com.example.soptin.util.ViewModelFactory
 import com.example.soptin.util.convertToKoreanDayOfWeek
 import com.kizitonwose.calendarview.model.CalendarDay
+import com.kizitonwose.calendarview.model.DayOwner
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
 import java.text.DecimalFormat
@@ -25,6 +27,7 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.YearMonth
 import java.util.*
+
 
 class HomeFragment : Fragment(){
 
@@ -64,12 +67,11 @@ class HomeFragment : Fragment(){
 
     }
 
-
     //똥코드 죄송.. 담에 시간 날때 수정할게요 ㅠㅠ 쏘리 캘린더 첨 커스텀해바
     private fun calender() {
 
         //이 라이브러리는 크기가 고정되어 있습니다!
-        // 크기를 변경하려면 직접 지정 존나 해맸어요!
+        // 크기를 변경하려면 직접 지정  해맸어요!
         with(binding.calendarView) {
             doOnPreDraw {
                 val cellHeight = resources.getDimension(R.dimen.day_cell_height).toInt()
@@ -79,13 +81,13 @@ class HomeFragment : Fragment(){
                 )
             }
         }
-
         binding.calendarView.dayBinder = object : DayBinder<DayViewContainer> {
 
             override fun create(view: View) = DayViewContainer(view)
             override fun bind(container: DayViewContainer, day: CalendarDay) {
                 container.day = day
                 container.bind(day)
+
             }
         }
 
@@ -126,29 +128,20 @@ class HomeFragment : Fragment(){
         var isSelected: Boolean = false
 
         init {
-
             view.setOnClickListener {
                 // 날짜 선택 시 처리 정의
                 isSelected = !isSelected
                 val clickedDate =
                     "${day.date.year}년-${df.format(day.date.monthValue)}월-${df.format(day.date.dayOfMonth)}일"
-                Log.d("date", clickedDate)
                 binding.tvDate.text = clickedDate
-
                 if (isSelected) {
                     dateText.setTextColor(ContextCompat.getColor(dateText.context, R.color.white))
                     calendarBackGround.setBackgroundResource(R.drawable.background_calendar_check) // 선택되었을 때 배경 설정
                 } else {
-                    dateText.setTextColor(
-                        ContextCompat.getColor(
-                            dateText.context,
-                            R.color.gray_800
-                        )
-                    )
+                    dateText.setTextColor(ContextCompat.getColor(dateText.context, R.color.gray_800))
                     calendarBackGround.background = null // 선택되지 않았을 때 배경 제거
                 }
             }
-
         }
 
         fun bind(day: CalendarDay) {
@@ -157,13 +150,14 @@ class HomeFragment : Fragment(){
             this.day = day
             doneIcon.text = day.date.dayOfMonth.toString()
             dateText.text = convertToKoreanDayOfWeek(day.date.dayOfWeek)
+            //오늘날짜 선택
             if (doneIcon.text == dayOfMonth.toString()) {
+                isSelected = !isSelected
                 dateText.setTextColor(ContextCompat.getColor(dateText.context, R.color.white))
-                calendarBackGround.setBackgroundResource(R.drawable.background_calendar_check) // 선택되었을 때 배경 설정
+                calendarBackGround.setBackgroundResource(R.drawable.background_calendar_check)
             }
         }
     }
-
 
     override fun onDestroyView() {
         _binding = null
