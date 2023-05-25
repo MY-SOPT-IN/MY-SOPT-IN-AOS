@@ -69,7 +69,6 @@ class HomeFragment : Fragment(){
 
     //똥코드 죄송.. 담에 시간 날때 수정할게요 ㅠㅠ 쏘리 캘린더 첨 커스텀해바
     private fun calender() {
-
         //이 라이브러리는 크기가 고정되어 있습니다!
         // 크기를 변경하려면 직접 지정  해맸어요!
         with(binding.calendarView) {
