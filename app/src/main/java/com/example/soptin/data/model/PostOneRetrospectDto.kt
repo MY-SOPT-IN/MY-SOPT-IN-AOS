@@ -17,11 +17,12 @@ data class RequestPostRetrospectDto(
    val writtenDate:String
 )
 
+@Serializable
 data class ResponsePostRetrospectDto(
    @SerialName("code")
    val code:Int,
    @SerialName("message")
    val message:String,
    @SerialName("data")
-   val data:List<RetrospectDto>?
+   val data:RetrospectDto?
 )

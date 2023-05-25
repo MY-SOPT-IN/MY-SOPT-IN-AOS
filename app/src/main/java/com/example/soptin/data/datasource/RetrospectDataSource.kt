@@ -1,8 +1,6 @@
 package com.example.soptin.data.datasource
 
-import com.example.soptin.data.model.ResponseCollectRetrospectDto
-import com.example.soptin.data.model.ResponseOneRetrospectDto
-import com.example.soptin.data.model.RetrospectDto
+import com.example.soptin.data.model.*
 import com.example.soptin.domain.RetrospectRepo
 import com.example.soptin.network.RetrospectApiService
 import retrofit2.Response
@@ -21,4 +19,7 @@ class RetrospectDataSource(private val apiService: RetrospectApiService) : Retro
         retrospectDto: RetrospectDto
     ): Response<ResponseOneRetrospectDto> =
         apiService.putRetrospect(retrospectId, retrospectDto)
+
+    override suspend fun postRetrospect(request: RequestPostRetrospectDto): Response<ResponsePostRetrospectDto> =
+        apiService.postRetrospect(request)
 }

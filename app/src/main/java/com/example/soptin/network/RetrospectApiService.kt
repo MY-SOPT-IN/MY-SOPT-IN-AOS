@@ -18,4 +18,9 @@ interface RetrospectApiService {
         @Body body :RetrospectDto
         ): Response<ResponseOneRetrospectDto>
 
+    @POST("/retro")
+    suspend fun postRetrospect(
+        @Body body: RequestPostRetrospectDto
+    ): Response<ResponsePostRetrospectDto>
+
 }

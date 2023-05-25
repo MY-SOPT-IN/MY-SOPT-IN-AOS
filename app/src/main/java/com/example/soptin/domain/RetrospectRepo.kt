@@ -14,4 +14,9 @@ interface RetrospectRepo {
         retrospectId: Int,
         retrospectDto: RetrospectDto
     ): Response<ResponseOneRetrospectDto>
+
+    suspend fun postRetrospect(
+        request : RequestPostRetrospectDto
+    ) : Response<ResponsePostRetrospectDto>
+
 }

@@ -6,17 +6,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.view.doOnPreDraw
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.soptin.R
+import com.example.soptin.data.model.RequestPostRetrospectDto
+import com.example.soptin.data.model.RetrospectDto
 import com.example.soptin.databinding.CalenderDayLayoutBinding
 import com.example.soptin.databinding.FragmentRetrospectBinding
 import com.example.soptin.presentation.collectretrospectives.CollectRetrospectiveActivity
 import com.example.soptin.presentation.collectretrospectives.RetrospectViewModel
+import com.example.soptin.util.EventObserver
 import com.example.soptin.util.ViewModelFactory
 import com.example.soptin.util.convertToKoreanDayOfWeek
 import com.kizitonwose.calendarview.model.CalendarDay
@@ -34,26 +36,35 @@ class RetrospectFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: RetrospectViewModel by viewModels { ViewModelFactory(requireContext()) }
+
+    private lateinit var todayDate: String
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_retrospect, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_retrospect, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         calender()
-        viewModel.getOneRetrospect("2023-05-19")
+
+        viewModel.getRetroId.observe(viewLifecycleOwner) {// 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
+            binding.etRoutineRetro.setText(viewModel.oneRetrospectDto.value?.descRoutine ?: "")
+            binding.etTodayGood.setText(viewModel.oneRetrospectDto.value?.descBest ?: "")
+            binding.etTalkMyself.setText(viewModel.oneRetrospectDto.value?.descSelf ?: "")
+        } // 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
+
+
         binding.tvLookAllRetro.setOnClickListener {
             Intent(activity, CollectRetrospectiveActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(this)
             }
         }
+        clickSave(viewModel.getRetroId.value ?: 1)
+
+
     }
 
 
@@ -65,8 +76,7 @@ class RetrospectFragment : Fragment() {
             doOnPreDraw {
                 val cellHeight = resources.getDimension(R.dimen.day_cell_height).toInt()
                 daySize = com.kizitonwose.calendarview.utils.Size(
-                    binding.calendarView.width / 7,
-                    cellHeight
+                    binding.calendarView.width / 7, cellHeight
                 )
             }
         }
@@ -116,9 +126,13 @@ class RetrospectFragment : Fragment() {
                 // 날짜 선택 시 처리 정의
                 isSelected = !isSelected
                 val clickedDate =
-                    "${day.date.year}년-${df.format(day.date.monthValue)}월-${df.format(day.date.dayOfMonth)}일"
+                    "${day.date.year}년 ${df.format(day.date.monthValue)}월 ${df.format(day.date.dayOfMonth)}일"
                 Log.d("date", clickedDate)
                 binding.tvToday.text = clickedDate
+                todayDate =
+                    "${day.date.year}-${day.date.monthValue}-${df.format(day.date.dayOfMonth)}"
+                viewModel.getOneRetrospect(todayDate)
+                Log.d("날짜", todayDate)
 
                 if (isSelected) {
                     dateText.setTextColor(ContextCompat.getColor(dateText.context, R.color.white))
@@ -126,8 +140,7 @@ class RetrospectFragment : Fragment() {
                 } else {
                     dateText.setTextColor(
                         ContextCompat.getColor(
-                            dateText.context,
-                            R.color.gray_800
+                            dateText.context, R.color.gray_800
                         )
                     )
                     calendarBackGround.background = null // 선택되지 않았을 때 배경 제거
@@ -146,6 +159,36 @@ class RetrospectFragment : Fragment() {
                 dateText.setTextColor(ContextCompat.getColor(dateText.context, R.color.white))
                 calendarBackGround.setBackgroundResource(R.drawable.background_calendar_check) // 선택되었을 때 배경 설정
             }
+        }
+    }
+
+    private fun clickSave(retroId: Int) {
+        binding.btnSave.setOnClickListener {
+
+            if (viewModel.code.value == 204) {
+                viewModel.postRetrospect(
+                    RequestPostRetrospectDto(
+                        true,
+                        binding.etRoutineRetro.text.toString(),
+                        binding.etTodayGood.text.toString(),
+                        binding.etTalkMyself.text.toString(),
+                        todayDate
+                    )
+                )
+            } else {
+                viewModel.putRetrospect(
+                    retroId, RetrospectDto(
+                        binding.etRoutineRetro.text.toString(),
+                        binding.etTodayGood.toString(),
+                        binding.etTalkMyself.toString(),
+                        true,
+                        true,
+                        retroId,
+                        todayDate
+                    )
+                )
+            }
+
         }
     }
 
