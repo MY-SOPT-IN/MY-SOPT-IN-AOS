@@ -132,7 +132,6 @@ class RetrospectFragment : Fragment() {
                 todayDate =
                     "${day.date.year}-${day.date.monthValue}-${df.format(day.date.dayOfMonth)}"
                 viewModel.getOneRetrospect(todayDate)
-                Log.d("날짜", todayDate)
 
                 if (isSelected) {
                     dateText.setTextColor(ContextCompat.getColor(dateText.context, R.color.white))
