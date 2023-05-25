@@ -21,7 +21,7 @@ import com.example.soptin.presentation.retrospect.UpdateRetrospectActivity
 import com.example.soptin.util.EventObserver
 import com.example.soptin.util.ViewModelFactory
 
-class CollectRetrospectiveActivity : AppCompatActivity() {
+class CollectRetrospectiveActivity : AppCompatActivity() , BottomSheetListner{
 
     private lateinit var binding: ActivityCollectRetrospectiveBinding
     private val viewModel: RetrospectViewModel by viewModels { ViewModelFactory(this) }
@@ -32,12 +32,18 @@ class CollectRetrospectiveActivity : AppCompatActivity() {
         val adapter = RetrostpectAdapter(viewModel)
 
         //달 선택 만들면 추후에 바꿈 현재는 하드
-        viewModel.getRetrospect(5)
+        viewModel.getRetrospect(4)
 
         viewModel.retrospectDto.observe(this){
             binding.rvRetrospect.adapter = adapter.apply {
                 submitList(it)
             }
+        }
+
+        binding.ivCalendar.setOnClickListener {
+            val bottomSheetFragment = BottomSheetDialog()
+            bottomSheetFragment.setCheckDialogListener(this)
+            bottomSheetFragment.show(supportFragmentManager, "childFragmentManager")
         }
 
         binding.toolbarCollectBack.setNavigationOnClickListener {
@@ -54,6 +60,10 @@ class CollectRetrospectiveActivity : AppCompatActivity() {
                 startActivity(this)
             }
         })
+    }
+
+    override fun onBottomSheetResult() {
+        viewModel.getRetrospect(5)
     }
 
 }
