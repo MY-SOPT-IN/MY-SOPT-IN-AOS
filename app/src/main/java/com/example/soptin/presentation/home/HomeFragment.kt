@@ -26,7 +26,7 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.util.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(){
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -169,6 +169,7 @@ class HomeFragment : Fragment() {
         _binding = null
         super.onDestroyView()
     }
+
 
 }
 

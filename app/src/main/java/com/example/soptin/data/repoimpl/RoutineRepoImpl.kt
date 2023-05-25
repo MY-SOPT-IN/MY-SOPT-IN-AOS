@@ -2,6 +2,7 @@ package com.example.soptin.data.repoimpl
 
 import com.example.soptin.data.model.ResponseRoutineDto
 import com.example.soptin.data.datasource.RoutineDataSource
+import com.example.soptin.data.model.ResponseDeleteRoutineDto
 import retrofit2.Response
 
 class RoutineRepoImpl(
@@ -10,4 +11,7 @@ class RoutineRepoImpl(
 
     suspend fun getRoutine(targetDate:String):Response<ResponseRoutineDto> =
         routineDataSource.getRoutine(targetDate)
+
+    suspend fun deleteRoutine(routineId: Int): Response<ResponseDeleteRoutineDto> =
+        routineDataSource.deleteRoutine(routineId)
 }

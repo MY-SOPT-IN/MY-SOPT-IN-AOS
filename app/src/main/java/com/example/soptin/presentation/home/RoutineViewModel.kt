@@ -1,5 +1,6 @@
 package com.example.soptin.presentation.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,6 +19,12 @@ class RoutineViewModel (
         val response = routineRepoImpl.getRoutine(targetDate)
         if(response.isSuccessful){
             _routineDto.value= response.body()?.data
+        }
+    }
+    fun deleteRoutine(routineId:Int) =viewModelScope.launch {
+        val response = routineRepoImpl.deleteRoutine(routineId)
+        if(response.isSuccessful){
+
         }
     }
 

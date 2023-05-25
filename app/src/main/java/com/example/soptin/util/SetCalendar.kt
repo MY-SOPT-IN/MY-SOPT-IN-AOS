@@ -16,7 +16,6 @@ fun getNowMonth() :MutableList<String>{
         val month = calendar.get(Calendar.MONTH) + 1 // 월은 0부터 시작하므로 1을 더하여 저장
         val yearMonthString = "${year}년 ${month}월"
         yearMonthList.add(yearMonthString)
-
         calendar.add(Calendar.MONTH, 1) // 다음 달로 이동
     }
     return yearMonthList
