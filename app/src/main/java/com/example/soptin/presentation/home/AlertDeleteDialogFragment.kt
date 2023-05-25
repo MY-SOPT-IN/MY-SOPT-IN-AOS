@@ -12,9 +12,6 @@ import com.example.soptin.databinding.ItemDeleteAlertBinding
 import com.example.soptin.presentation.collectretrospectives.BottomSheetListner
 import com.example.soptin.util.ViewModelFactory
 
-interface dialogListner {
-    fun onDialogResult()
-}
 
 class AlertDeleteDialogFragment :DialogFragment() {
     private var _binding: ItemDeleteAlertBinding? = null
@@ -22,7 +19,6 @@ class AlertDeleteDialogFragment :DialogFragment() {
         get() = requireNotNull(_binding) { "binding is null..." }
     private var routineId:Int? = null // 리스트 아이템값
     private val viewModel: RoutineViewModel by viewModels { ViewModelFactory(requireContext()) }
-    private var dialogListner: dialogListner? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,9 +27,6 @@ class AlertDeleteDialogFragment :DialogFragment() {
         routineId = arguments?.getInt("routineId")
         _binding = ItemDeleteAlertBinding.inflate(inflater, container, false)
         return binding.root
-    }
-    fun DialogListener(listener: dialogListner) {
-        this.dialogListner = listener
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,7 +38,6 @@ class AlertDeleteDialogFragment :DialogFragment() {
         }
         binding.btnDeleteOk.setOnClickListener {
             viewModel.deleteRoutine(routineId!!)
-            dialogListner?.onDialogResult()
             dismiss()
         }
 
@@ -57,8 +49,4 @@ class AlertDeleteDialogFragment :DialogFragment() {
         super.onDestroyView()
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
 }

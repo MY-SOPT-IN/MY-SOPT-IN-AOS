@@ -167,7 +167,7 @@
         android:paddingHorizontal="13dp"
         android:paddingVertical="17dp"
         android:textAppearance="@style/TextAppearance.Body"
-        app:layout_constraintEnd_toEndOf="parenqt"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_talk_myself" />
 

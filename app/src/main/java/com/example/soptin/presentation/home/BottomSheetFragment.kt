@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.soptin.R
 import com.example.soptin.databinding.FragmentBottomsheetBinding
 import com.example.soptin.databinding.ItemRoutineBinding
+import com.example.soptin.presentation.AddRoutine.AddRoutineActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheetFragment(val routineId: Int) : BottomSheetDialogFragment() {
@@ -56,7 +57,7 @@ class BottomSheetFragment(val routineId: Int) : BottomSheetDialogFragment() {
                 startActivity(intent)
             }
             btnEdit.setOnClickListener {
-                val intent = Intent(activity,UpdateRoutineActivity::class.java)
+                val intent = Intent(activity,AddRoutineActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }

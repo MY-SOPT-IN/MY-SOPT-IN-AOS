@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.soptin.data.model.RequestPostRetrospectDto
 import com.example.soptin.data.model.ResponseCollectRetrospectDto
+import com.example.soptin.data.model.ResponseOneRetrospectDto
 import com.example.soptin.data.model.RetrospectDto
 import com.example.soptin.data.repoimpl.RetrospectRepoImpl
 import com.example.soptin.util.Event
@@ -34,6 +35,9 @@ class RetrospectViewModel(
     private val _getRetroId = MutableLiveData<Int?>()
     val getRetroId: LiveData<Int?> get() = _getRetroId
 
+    private val _getRetroDto = MutableLiveData<ResponseOneRetrospectDto>()
+    val getRetroDto: LiveData<ResponseOneRetrospectDto> get() = _getRetroDto
+
     fun getRetrospect(month: Int) = viewModelScope.launch {
         val response = retrospectRepoImpl.getRetrospect(month)
         if (response.isSuccessful) {
@@ -44,10 +48,7 @@ class RetrospectViewModel(
     fun getOneRetrospect(date: String) = viewModelScope.launch {
         val response = retrospectRepoImpl.getOneRetrospect(date)
         if (response.isSuccessful) {
-            Log.d("test", response.body().toString())
-            _getRetroId.value= response.body()?.data?.retrospectId
-            _code.value = response.body()?.code
-            _oneRetrospectDto.value = response.body()?.data
+            _getRetroDto.value=response.body()
         }
     }
 

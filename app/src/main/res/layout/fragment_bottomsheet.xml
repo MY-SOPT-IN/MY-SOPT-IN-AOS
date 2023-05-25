@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="43dp"
     android:paddingLeft="38dp">
 
 
@@ -20,6 +21,7 @@
 
     <!-- '수정하기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
+        android:paddingLeft="5dp"
         android:id="@+id/btn_edit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -32,6 +34,7 @@
 
     <!-- '복사하기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
+        android:paddingLeft="5dp"
         android:id="@+id/btn_copy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,6 +46,7 @@
 
     <!-- '쉬어가기' 버튼 -->
     <androidx.appcompat.widget.AppCompatButton
+        android:paddingLeft="5dp"
         android:id="@+id/btn_rest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

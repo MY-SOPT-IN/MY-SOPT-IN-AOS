@@ -107,7 +107,7 @@ class HomeFragment : Fragment(){
         val month = currentDate.get(Calendar.MONTH) + 1 // Note: Months are zero-based
         val dayOfMonth = currentDate.get(Calendar.DAY_OF_MONTH)
         val df = DecimalFormat("00")
-        val formattedDate = "${year}년-${df.format(month)}월-${df.format(dayOfMonth)}일"
+        val formattedDate = "${year}년 ${df.format(month)}월 ${df.format(dayOfMonth)}일"
 
         binding.tvDate.text = formattedDate
         binding.calendarView.setup(firstMonth, lastMonth, daysOfWeek.first())

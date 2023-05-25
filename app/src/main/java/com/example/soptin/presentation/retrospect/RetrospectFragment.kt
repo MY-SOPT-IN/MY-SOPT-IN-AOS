@@ -49,12 +49,12 @@ class RetrospectFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         calender()
 
-        viewModel.getRetroId.observe(viewLifecycleOwner) {// 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
-            binding.etRoutineRetro.setText(viewModel.oneRetrospectDto.value?.descRoutine ?: "")
-            binding.etTodayGood.setText(viewModel.oneRetrospectDto.value?.descBest ?: "")
-            binding.etTalkMyself.setText(viewModel.oneRetrospectDto.value?.descSelf ?: "")
-        } // 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
-
+     // 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
+        viewModel.getRetroDto.observe(viewLifecycleOwner) {// 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
+            binding.etRoutineRetro.setText(it.data?.descRoutine ?: "")
+            binding.etTodayGood.setText(it.data?.descBest ?: "")
+            binding.etTalkMyself.setText(it.data?.descSelf ?: "")
+        }
 
         binding.tvLookAllRetro.setOnClickListener {
             Intent(activity, CollectRetrospectiveActivity::class.java).apply {
@@ -121,7 +121,6 @@ class RetrospectFragment : Fragment() {
         var isSelected: Boolean = false
 
         init {
-
             view.setOnClickListener {
                 // 날짜 선택 시 처리 정의
                 isSelected = !isSelected
@@ -131,17 +130,12 @@ class RetrospectFragment : Fragment() {
                 binding.tvToday.text = clickedDate
                 todayDate =
                     "${day.date.year}-${day.date.monthValue}-${df.format(day.date.dayOfMonth)}"
-                viewModel.getOneRetrospect(todayDate)
-
                 if (isSelected) {
+                    viewModel.getOneRetrospect(todayDate)
                     dateText.setTextColor(ContextCompat.getColor(dateText.context, R.color.white))
                     calendarBackGround.setBackgroundResource(R.drawable.background_calendar_check) // 선택되었을 때 배경 설정
                 } else {
-                    dateText.setTextColor(
-                        ContextCompat.getColor(
-                            dateText.context, R.color.gray_800
-                        )
-                    )
+                    dateText.setTextColor(ContextCompat.getColor(dateText.context, R.color.gray_800))
                     calendarBackGround.background = null // 선택되지 않았을 때 배경 제거
                 }
             }
@@ -178,8 +172,8 @@ class RetrospectFragment : Fragment() {
                 viewModel.putRetrospect(
                     retroId, RetrospectDto(
                         binding.etRoutineRetro.text.toString(),
-                        binding.etTodayGood.toString(),
-                        binding.etTalkMyself.toString(),
+                        binding.etTodayGood.text.toString(),
+                        binding.etTalkMyself.text.toString(),
                         true,
                         true,
                         retroId,

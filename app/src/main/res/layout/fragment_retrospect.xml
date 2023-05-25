@@ -18,7 +18,7 @@
 
 
             <com.kizitonwose.calendarview.CalendarView
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="7dp"
                 android:id="@+id/calendar_view"
                 android:layout_width="0dp"
                 tools:listitem="@layout/calender_day_layout"

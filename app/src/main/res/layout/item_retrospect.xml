@@ -15,6 +15,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@color/gray_50"
         android:layout_height="wrap_content"
         android:paddingTop="20dp">
 
@@ -88,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="17dp"
                 android:text="루틴 회고"
+                android:layout_marginTop="9dp"
                 android:textAppearance="@style/TextAppearance.Subtitle"
                 android:textColor="@color/gray_800"
                 app:layout_constraintStart_toStartOf="parent"
