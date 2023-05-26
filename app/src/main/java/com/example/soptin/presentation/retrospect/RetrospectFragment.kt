@@ -163,7 +163,7 @@ class RetrospectFragment : Fragment() {
     private fun clickSave(retroId: Int) {
         binding.btnSave.setOnClickListener {
 
-            if (viewModel.code.value == 204) {
+            if (viewModel.getRetroDto.value?.code == 204) {
                 viewModel.postRetrospect(
                     RequestPostRetrospectDto(
                         true,
