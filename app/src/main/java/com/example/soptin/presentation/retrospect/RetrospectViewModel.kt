@@ -1,4 +1,4 @@
-package com.example.soptin.presentation.collectretrospectives
+package com.example.soptin.presentation.retrospect
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,13 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.soptin.data.model.RequestPostRetrospectDto
-import com.example.soptin.data.model.ResponseCollectRetrospectDto
 import com.example.soptin.data.model.ResponseOneRetrospectDto
 import com.example.soptin.data.model.RetrospectDto
 import com.example.soptin.data.repoimpl.RetrospectRepoImpl
 import com.example.soptin.util.Event
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class RetrospectViewModel(
     private val retrospectRepoImpl: RetrospectRepoImpl
@@ -22,8 +20,6 @@ class RetrospectViewModel(
     val retrospectDto: LiveData<List<RetrospectDto>?>
         get() = _retrospectDto
 
-    private val _oneRetrospectDto = MutableLiveData<RetrospectDto?>()
-    val oneRetrospectDto: LiveData<RetrospectDto?> get() = _oneRetrospectDto
 
     private val _retrospectId = MutableLiveData<Event<RetrospectDto>>()
     val retrospectId: LiveData<Event<RetrospectDto>>
@@ -32,8 +28,6 @@ class RetrospectViewModel(
     private val _code = MutableLiveData<Int>()
     val code: LiveData<Int> get() = _code
 
-    private val _getRetroId = MutableLiveData<Int?>()
-    val getRetroId: LiveData<Int?> get() = _getRetroId
 
     private val _getRetroDto = MutableLiveData<ResponseOneRetrospectDto>()
     val getRetroDto: LiveData<ResponseOneRetrospectDto> get() = _getRetroDto

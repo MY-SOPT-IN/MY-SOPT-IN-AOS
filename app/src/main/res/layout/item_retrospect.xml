@@ -9,7 +9,7 @@
             type="com.example.soptin.data.model.RetrospectDto" />
         <variable
             name="viewmodel"
-            type="com.example.soptin.presentation.collectretrospectives.RetrospectViewModel" />
+            type="com.example.soptin.presentation.retrospect.RetrospectViewModel" />
 
     </data>
 

@@ -11,5 +11,5 @@ data class ResponseOneRetrospectDto(
   @SerialName("message")
   val message:String,
   @SerialName("data")
-  val data:RetrospectDto?
+  val data: RetrospectDto?
 )

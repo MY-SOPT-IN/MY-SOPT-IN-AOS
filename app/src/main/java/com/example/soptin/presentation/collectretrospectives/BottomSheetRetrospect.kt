@@ -2,21 +2,16 @@ package com.example.soptin.presentation.collectretrospectives
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.soptin.R
 import com.example.soptin.databinding.FragmentBottomsheetRetrospectBinding
 import com.example.soptin.util.getNowMonth
-import com.example.soptin.util.toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 interface BottomSheetListner {
     fun onBottomSheetResult(month: Int)
@@ -44,10 +39,14 @@ class BottomSheetDialog(private val context: Context) : BottomSheetDialogFragmen
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val a = getNowMonth()
+        setAdapter()
+    }
+
+    private fun setAdapter() {
+        val nowMonth = getNowMonth()
         var month: Int
         binding.rvBottomsheetRetro.adapter = adapter.apply {
-            submitList(a)
+            submitList(nowMonth)
             setOnItemClickListener(object : MonthYearAdapter.OnItemClickListener {
                 override fun onItemClick(item: String, position: Int) {
                     val input = "$item"

@@ -1,17 +1,15 @@
-package com.example.soptin.presentation.retrospect
+package com.example.soptin.presentation.update_retrospect
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.soptin.data.model.ResponseCollectRetrospectDto
 import com.example.soptin.data.model.RetrospectDto
 import com.example.soptin.databinding.ActivityUpdateRetrospectBinding
 import com.example.soptin.presentation.collectretrospectives.CollectRetrospectiveActivity
-import com.example.soptin.presentation.collectretrospectives.RetrospectViewModel
+import com.example.soptin.presentation.retrospect.RetrospectViewModel
 import com.example.soptin.util.ViewModelFactory
 
 class UpdateRetrospectActivity : AppCompatActivity() {

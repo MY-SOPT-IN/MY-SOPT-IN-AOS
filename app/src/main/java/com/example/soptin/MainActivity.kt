@@ -20,6 +20,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigation()
+        setTab()
+
+    }
+
+    private fun setupNavigation(): NavController {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+        val navController = navHostFragment.navController
+        NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
+        return navController
+    }
+
+    private fun changeFragment(fragment: Fragment) {
+        supportFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+        }
+    }
+
+    private fun setTab() {
         val tabLayout = binding.tabLayout
 
         tabLayout.addTab(tabLayout.newTab().setText("      루틴      "))
@@ -39,20 +58,5 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
-    }
-
-    private fun setupNavigation(): NavController {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
-        val navController = navHostFragment.navController
-        NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
-        return navController
-    }
-
-    private fun changeFragment(fragment: Fragment) {
-        supportFragmentManager.commit {
-            replace(R.id.fragment_container, fragment)
-        }
     }
 }

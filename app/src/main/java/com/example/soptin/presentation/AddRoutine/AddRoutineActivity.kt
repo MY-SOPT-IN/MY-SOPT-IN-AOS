@@ -2,9 +2,9 @@ package com.example.soptin.presentation.AddRoutine
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.example.soptin.MainActivity
 import com.example.soptin.R
 import com.example.soptin.databinding.ActivityAddRoutineBinding
@@ -34,7 +34,6 @@ class AddRoutineActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -42,8 +41,6 @@ class AddRoutineActivity : AppCompatActivity() {
         var isMorning = true
         var isAfternoon = true
         var isNight = true
-
-
 
         with(binding) {
 
@@ -56,7 +53,6 @@ class AddRoutineActivity : AppCompatActivity() {
                     isMorning = true
                 }
             }
-
 
             ivAfternoon.setOnClickListener {
                 if (isAfternoon) {
@@ -77,7 +73,6 @@ class AddRoutineActivity : AppCompatActivity() {
                     isNight = true
                 }
             }
-
 
         }
 
