@@ -110,7 +110,8 @@
         android:paddingHorizontal="13dp"
         android:paddingVertical="17dp"
         android:textAppearance="@style/TextAppearance.Body"
-        android:textColor="@color/gray_500"
+        android:textColorHint="@color/gray_500"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_routine_retro" />
