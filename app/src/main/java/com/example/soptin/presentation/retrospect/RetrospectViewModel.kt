@@ -25,9 +25,6 @@ class RetrospectViewModel(
     val retrospectId: LiveData<Event<RetrospectDto>>
         get() = _retrospectId
 
-    private val _code = MutableLiveData<Int>()
-    val code: LiveData<Int> get() = _code
-
 
     private val _getRetroDto = MutableLiveData<ResponseOneRetrospectDto>()
     val getRetroDto: LiveData<ResponseOneRetrospectDto> get() = _getRetroDto
