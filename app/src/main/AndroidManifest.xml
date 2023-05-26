@@ -18,13 +18,13 @@
             android:name=".presentation.collectretrospectives.CollectRetrospectiveActivity"
             android:exported="false"/>
         <activity
-            android:name=".presentation.home.RoutineCalendarActivity"
+            android:name=".presentation.routine.RoutineCalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.home.UpdateRoutineActivity"
+            android:name=".presentation.AddRoutine.UpdateRoutineActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.retrospect.UpdateRetrospectActivity"
+            android:name=".presentation.update_retrospect.UpdateRetrospectActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.AddRoutine.AddRoutineActivity"

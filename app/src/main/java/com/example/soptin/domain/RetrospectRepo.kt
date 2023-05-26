@@ -1,9 +1,11 @@
 package com.example.soptin.domain
 
-import com.example.soptin.data.model.*
+import com.example.soptin.data.model.RequestPostRetrospectDto
+import com.example.soptin.data.model.ResponseCollectRetrospectDto
+import com.example.soptin.data.model.ResponseOneRetrospectDto
+import com.example.soptin.data.model.RetrospectDto
+import com.example.soptin.data.model.ResponsePostRetrospectDto
 import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.Path
 
 interface RetrospectRepo {
     suspend fun getRetrospect(month: Int): Response<ResponseCollectRetrospectDto>
@@ -16,7 +18,7 @@ interface RetrospectRepo {
     ): Response<ResponseOneRetrospectDto>
 
     suspend fun postRetrospect(
-        request : RequestPostRetrospectDto
-    ) : Response<ResponsePostRetrospectDto>
+        request: RequestPostRetrospectDto
+    ): Response<ResponsePostRetrospectDto>
 
 }

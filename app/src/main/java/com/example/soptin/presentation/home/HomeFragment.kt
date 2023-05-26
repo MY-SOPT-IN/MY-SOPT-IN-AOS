@@ -2,11 +2,9 @@ package com.example.soptin.presentation.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.doOnPreDraw
 import androidx.databinding.DataBindingUtil
@@ -16,10 +14,11 @@ import com.example.soptin.R
 import com.example.soptin.databinding.CalenderDayLayoutBinding
 import com.example.soptin.databinding.FragmentHomeBinding
 import com.example.soptin.presentation.AddRoutine.AddRoutineActivity
+import com.example.soptin.presentation.routine.RoutineViewModel
+import com.example.soptin.util.BorderItemDecoration
 import com.example.soptin.util.ViewModelFactory
 import com.example.soptin.util.convertToKoreanDayOfWeek
 import com.kizitonwose.calendarview.model.CalendarDay
-import com.kizitonwose.calendarview.model.DayOwner
 import com.kizitonwose.calendarview.ui.DayBinder
 import com.kizitonwose.calendarview.ui.ViewContainer
 import java.text.DecimalFormat

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.soptin.R
 import com.example.soptin.databinding.ItemBottomSheetRetrospectBinding
 import com.example.soptin.util.DiffCallback
+
 class MonthYearAdapter(
     val context: Context
 ) : ListAdapter<String, MonthYearAdapter.RetrospectViewHolder>(
@@ -67,10 +68,12 @@ class MonthYearAdapter(
         tvMonthYear.setBackgroundResource(R.drawable.background_select_month)
         tvMonthYear.setTextColor(context.getColor(R.color.black))
     }
+
     private fun ItemBottomSheetRetrospectBinding.setUnchecked() {
         tvMonthYear.setBackgroundResource(0)
         tvMonthYear.setTextColor(context.getColor(R.color.gray_700))
     }
+
     companion object {
         private val MonthYearDiffCallback = DiffCallback<String>(id = { old, new -> old == new })
     }

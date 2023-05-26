@@ -8,8 +8,8 @@ import com.example.soptin.data.datasource.RoutineDataSource
 import com.example.soptin.data.repoimpl.RetrospectRepoImpl
 import com.example.soptin.data.repoimpl.RoutineRepoImpl
 import com.example.soptin.network.ServicePool
-import com.example.soptin.presentation.collectretrospectives.RetrospectViewModel
-import com.example.soptin.presentation.home.RoutineViewModel
+import com.example.soptin.presentation.retrospect.RetrospectViewModel
+import com.example.soptin.presentation.routine.RoutineViewModel
 
 
 class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory {

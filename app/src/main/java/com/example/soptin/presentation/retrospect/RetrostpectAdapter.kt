@@ -1,4 +1,4 @@
-package com.example.soptin.presentation.collectretrospectives
+package com.example.soptin.presentation.retrospect
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -20,7 +20,7 @@ class RetrostpectAdapter(
         return RetrospectViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder:RetrospectViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RetrospectViewHolder, position: Int) {
         getItem(position)?.let { holder.bind(it) }
     }
 

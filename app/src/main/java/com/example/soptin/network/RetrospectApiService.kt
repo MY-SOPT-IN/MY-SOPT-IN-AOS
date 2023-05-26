@@ -1,6 +1,9 @@
 package com.example.soptin.network
 
 import com.example.soptin.data.model.*
+import com.example.soptin.data.model.ResponseCollectRetrospectDto
+import com.example.soptin.data.model.ResponseOneRetrospectDto
+import com.example.soptin.data.model.RetrospectDto
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -15,7 +18,7 @@ interface RetrospectApiService {
     @PUT("/retro/{retroId}")
     suspend fun putRetrospect(
         @Path("retroId") retrospectId:Int,
-        @Body body :RetrospectDto
+        @Body body : RetrospectDto
         ): Response<ResponseOneRetrospectDto>
 
     @POST("/retro")

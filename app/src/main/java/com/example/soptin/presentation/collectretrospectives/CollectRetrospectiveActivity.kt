@@ -8,7 +8,9 @@ import androidx.databinding.DataBindingUtil
 import com.example.soptin.MainActivity
 import com.example.soptin.R
 import com.example.soptin.databinding.ActivityCollectRetrospectiveBinding
-import com.example.soptin.presentation.retrospect.UpdateRetrospectActivity
+import com.example.soptin.presentation.retrospect.RetrospectViewModel
+import com.example.soptin.presentation.retrospect.RetrostpectAdapter
+import com.example.soptin.presentation.update_retrospect.UpdateRetrospectActivity
 import com.example.soptin.util.EventObserver
 import com.example.soptin.util.ViewModelFactory
 
@@ -23,25 +25,14 @@ class CollectRetrospectiveActivity : AppCompatActivity(), BottomSheetListner {
 
         //달 선택 만들면 추후에 바꿈 현재는 하드
         viewModel.getRetrospect(5)
+        setRespectAdapter(adapter)
+        onClickCalendar()
+        onBackButton()
+        sharedRetrospectDto()
 
-        viewModel.retrospectDto.observe(this) {
-            binding.rvRetrospect.adapter = adapter.apply {
-                submitList(it)
-            }
-        }
+    }
 
-        binding.ivCalendar.setOnClickListener {
-            val bottomSheetFragment = BottomSheetDialog(this)
-            bottomSheetFragment.setCheckDialogListener(this)
-            bottomSheetFragment.show(supportFragmentManager, "childFragmentManager")
-        }
-
-        binding.toolbarCollectBack.setNavigationOnClickListener {
-            Intent(this, MainActivity::class.java).apply {
-                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(this)
-            }
-        }
+    private fun sharedRetrospectDto() {
         viewModel.retrospectId.observe(this, EventObserver {
             Intent(this, UpdateRetrospectActivity::class.java).apply {
                 putExtra("id", it.retrospectId)
@@ -54,6 +45,31 @@ class CollectRetrospectiveActivity : AppCompatActivity(), BottomSheetListner {
                 startActivity(this)
             }
         })
+    }
+
+    private fun onBackButton() {
+        binding.toolbarCollectBack.setNavigationOnClickListener {
+            Intent(this, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(this)
+            }
+        }
+    }
+
+    private fun onClickCalendar() {
+        binding.ivCalendar.setOnClickListener {
+            val bottomSheetFragment = BottomSheetDialog(this)
+            bottomSheetFragment.setCheckDialogListener(this)
+            bottomSheetFragment.show(supportFragmentManager, "childFragmentManager")
+        }
+    }
+
+    private fun setRespectAdapter(adapter: RetrostpectAdapter) {
+        viewModel.retrospectDto.observe(this) {
+            binding.rvRetrospect.adapter = adapter.apply {
+                submitList(it)
+            }
+        }
     }
 
     override fun onBottomSheetResult(month: Int) {

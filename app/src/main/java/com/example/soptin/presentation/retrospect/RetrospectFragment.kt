@@ -17,8 +17,6 @@ import com.example.soptin.data.model.RetrospectDto
 import com.example.soptin.databinding.CalenderDayLayoutBinding
 import com.example.soptin.databinding.FragmentRetrospectBinding
 import com.example.soptin.presentation.collectretrospectives.CollectRetrospectiveActivity
-import com.example.soptin.presentation.collectretrospectives.RetrospectViewModel
-import com.example.soptin.util.EventObserver
 import com.example.soptin.util.ViewModelFactory
 import com.example.soptin.util.convertToKoreanDayOfWeek
 import com.kizitonwose.calendarview.model.CalendarDay
@@ -50,22 +48,28 @@ class RetrospectFragment : Fragment() {
         calender()
 
      // 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
-        viewModel.getRetroDto.observe(viewLifecycleOwner) {// 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
-            binding.etRoutineRetro.setText(it.data?.descRoutine ?: "")
-            binding.etTodayGood.setText(it.data?.descBest ?: "")
-            binding.etTalkMyself.setText(it.data?.descSelf ?: "")
-            clickSave(it.data?.retrospectId ?: 1)
-        }
+        setRoutineData()
+        moveToCollectRetrospect()
 
+    }
+
+    private fun moveToCollectRetrospect() {
         binding.tvLookAllRetro.setOnClickListener {
             Intent(activity, CollectRetrospectiveActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(this)
             }
         }
+    }
 
+    private fun setRoutineData() {
 
-
+        viewModel.getRetroDto.observe(viewLifecycleOwner) {// 날짜가 바뀌었을때, 이미 작성한 게 있으면 반영하기
+            binding.etRoutineRetro.setText(it.data?.descRoutine ?: "")
+            binding.etTodayGood.setText(it.data?.descBest ?: "")
+            binding.etTalkMyself.setText(it.data?.descSelf ?: "")
+            clickSave(it.data?.retrospectId ?: 1)
+        }
     }
 
 

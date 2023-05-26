@@ -1,19 +1,19 @@
-package com.example.soptin.presentation.home
+package com.example.soptin.presentation.routine
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.soptin.MainActivity
-import com.example.soptin.databinding.ActivityUpdateRetrospectBinding
+import com.example.soptin.databinding.ActivityRoutineCalendarBinding
 
-class UpdateRoutineActivity : AppCompatActivity() {
+class RoutineCalendarActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityUpdateRetrospectBinding
+    private lateinit var binding : ActivityRoutineCalendarBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUpdateRetrospectBinding.inflate(layoutInflater)
+        binding = ActivityRoutineCalendarBinding.inflate(layoutInflater)
         setContentView(binding.root)
         clickToolbarBtnBack()
     }

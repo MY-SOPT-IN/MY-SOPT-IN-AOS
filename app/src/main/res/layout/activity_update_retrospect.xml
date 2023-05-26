@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_50"
-    tools:context=".presentation.retrospect.UpdateRetrospectActivity">
+    tools:context=".presentation.update_retrospect.UpdateRetrospectActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

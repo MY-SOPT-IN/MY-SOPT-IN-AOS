@@ -1,7 +1,6 @@
 package com.example.soptin.presentation.home
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ListAdapter
@@ -9,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.soptin.R
 import com.example.soptin.data.model.RoutineDto
 import com.example.soptin.databinding.ItemRoutineBinding
-import com.example.soptin.presentation.collectretrospectives.BottomSheetDialog
 import com.example.soptin.util.DiffCallback
 
 class HomeAdapter() : ListAdapter<RoutineDto, HomeAdapter.HomeViewHolder>(
