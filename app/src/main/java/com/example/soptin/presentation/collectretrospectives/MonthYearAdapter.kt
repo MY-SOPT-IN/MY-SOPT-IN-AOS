@@ -65,11 +65,11 @@ class MonthYearAdapter(
 
     private fun ItemBottomSheetRetrospectBinding.setChecked() {
         tvMonthYear.setBackgroundResource(R.drawable.background_select_month)
-        //텍스터 색 검정 추가
+        tvMonthYear.setTextColor(context.getColor(R.color.black))
     }
     private fun ItemBottomSheetRetrospectBinding.setUnchecked() {
         tvMonthYear.setBackgroundResource(0)
-        //텍스터 원래색으로
+        tvMonthYear.setTextColor(context.getColor(R.color.gray_700))
     }
     companion object {
         private val MonthYearDiffCallback = DiffCallback<String>(id = { old, new -> old == new })

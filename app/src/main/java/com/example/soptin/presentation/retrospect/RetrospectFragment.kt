@@ -172,8 +172,8 @@ class RetrospectFragment : Fragment() {
             } else {
                 viewModel.putRetrospect(
                     retroId, RetrospectDto(
-                        binding.etRoutineRetro.text.toString(),
                         binding.etTodayGood.text.toString(),
+                        binding.etRoutineRetro.text.toString(),
                         binding.etTalkMyself.text.toString(),
                         true,
                         true,
